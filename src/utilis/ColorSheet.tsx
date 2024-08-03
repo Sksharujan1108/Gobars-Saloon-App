@@ -1,0 +1,25 @@
+export const ColorSheet = {
+  Primary: '#5F9EA0',
+  Secondary: '#131313',
+  AppBackground: '#1F1B2C',
+  PrimaryBackground: '#EDEDED',
+  AnimationBottom: '#FFA500',
+  PrimaryText: '#D9D9D9',
+  SecondaryText: '#2793E1',
+  Text2: '#444646',
+  Text3: '#586166',
+  Text4: '#A8A8A8',
+  Text5: '#444849',
+  TextFocusColor: '#fff',
+  textDefaultColor: '#828282',
+  White: '#FFFFFF',
+  Black: '#000000',
+  PrimaryButton: '#363062',
+  SecondaryInputBorder: '#0499D2',
+  Border: '#E5E5E5',
+  Error: '#FF0000',
+  Success: '#169D04',
+  Warning: '#FFA500',
+ 
+  
+};
