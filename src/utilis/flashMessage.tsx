@@ -2,7 +2,6 @@ import { showMessage } from 'react-native-flash-message';
 import { StyleSheet, Vibration } from 'react-native';
 import { ColorSheet } from './ColorSheet';
 
-
 const duration = 3500;
 
 export const ErrorFlash = (description: string) => {

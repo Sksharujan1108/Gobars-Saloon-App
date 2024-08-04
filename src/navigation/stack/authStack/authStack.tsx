@@ -4,17 +4,23 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import Splash from '@/screen/auth/splash';
 import { AuthStackParamList } from '@/navigation/navigation_Models/auth_Models/authModels';
 import OnBoarding from '@/screen/auth/onBoarding';
+import LogIn from '@/screen/auth/logIn';
+import ForgotPassword from '@/screen/auth/forgotPassword';
+import Authentication from '@/screen/auth/authentication';
 
 const Stack = createNativeStackNavigator<AuthStackParamList>();
 
 const AuthStack = () => {
   return (
     <Stack.Navigator
-      initialRouteName = 'OnBoardingScreen'
+      initialRouteName = 'LogInScreen'
       screenOptions = {{ headerShown: false }}
     >
         <Stack.Screen name = "SplashScreen" component = {Splash} />
         <Stack.Screen name = "OnBoardingScreen" component = {OnBoarding} />
+        <Stack.Screen name = "LogInScreen" component = {LogIn} />
+        <Stack.Screen name = "ForgotPasswordScreen" component = {ForgotPassword} />
+        <Stack.Screen name = "AuthenticationScreen" component = {Authentication} />
     </Stack.Navigator>
   )
 }

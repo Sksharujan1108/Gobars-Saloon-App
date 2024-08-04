@@ -3,9 +3,9 @@ import { StackScreenProps } from '@react-navigation/stack';
 export type AuthStackParamList = {
   SplashScreen: undefined;
   OnBoardingScreen: undefined;
-  LoginScreen: undefined;
-  SignUpEmailScreen: undefined;
-  SignUpEmailOTPScreen: {
+  LogInScreen: undefined;
+  ForgotPasswordScreen: undefined;
+  AuthenticationScreen: {
     email: string;
   };
 };
