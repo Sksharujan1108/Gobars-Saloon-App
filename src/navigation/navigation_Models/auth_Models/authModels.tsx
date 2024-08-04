@@ -5,7 +5,7 @@ export type AuthStackParamList = {
   OnBoardingScreen: undefined;
   LogInScreen: undefined;
   ForgotPasswordScreen: undefined;
-  SignUpEmailOTPScreen: {
+  AuthenticationScreen: {
     email: string;
   };
 };

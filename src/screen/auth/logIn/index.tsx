@@ -1,4 +1,4 @@
-import { Image, StyleSheet, Text, View } from 'react-native'
+import { Alert, Image, StyleSheet, Text, View } from 'react-native'
 import React, { useState } from 'react'
 import { styles } from './styles';
 import { Constants } from './constants';
@@ -7,17 +7,25 @@ import TextInputField from '@/component/input/TextInput';
 import TextButton from '@/component/button/Text_Button';
 import PrimaryButton from '@/component/button/PrimaryButton';
 import { ColorSheet } from '@/utilis/ColorSheet';
+import { AuthStackScreenProps } from '@/navigation/navigation_Models/auth_Models/authModels';
 
-const LogIn = () => {
+const LogIn = ({navigation}: AuthStackScreenProps<'LogInScreen'>) => {
     const [form, setForm] = useState({
         email: '',
-        setEmail: '',
         emailError: '',
-        setEmailError: '',
         password: '',
         passwordError: '',
-        setPasswordError: ''
     });
+
+    const handleLogIn = () => {
+        if (form.email === '') {
+            Alert.alert(Constants.EMAIL_REQUIRED)
+        } else if (form.password === '') {
+            Alert.alert(Constants.PASSWORD_REQUIRED)
+        } else {
+            // 
+        }
+    }
 
   return (
     <View style={styles.root}>
@@ -39,6 +47,8 @@ const LogIn = () => {
     {/* LogIn Card */}
     <View style={styles.loginBottomContainer}>
         <KeyboardAwareScrollView
+        //   enableOnAndroid
+        //   enableAutomaticScroll
           showsVerticalScrollIndicator = {false}
         //   bounces = {false}
         >
@@ -50,38 +60,54 @@ const LogIn = () => {
                 
                 {/* Input Field */}
                 {/* Email Input Field */}
+                <Text style = {styles.inputTitle}> {'UserName'} </Text>
                 <TextInputField
                     placeholder = {Constants.EMAIL_PLACEHOLDER}
                     value = {form.email}
-                    onChangeText = {(email) => setForm({...form, email })}
+                    onChangeText = {(text) => setForm({...form, email: text })}
                     textError = {form.emailError}
                     onFocus = {() => setForm({...form, emailError: ''})}
+                    onBlur={() => {
+                        if (form.email === '') {
+                          setForm({...form, emailError: Constants.EMAIL_REQUIRED });
+                        } else {
+                            setForm({...form, emailError: '' });
+                        }
+                    }}
                 />
 
                 {/* Password Input Field */}
+                <Text style = {styles.inputTitle}> {'Password'} </Text>
                 <TextInputField
                    placeholder = {Constants.PASSWORD_PLACEHOLDER}
                    value = {form.password}
-                   onChangeText = {(password) => setForm({...form, password })}
+                   onChangeText = {(text) => setForm({...form, password: text })}
                    textError = {form.passwordError}
                    secureTextEntry
                    onFocus = {() => setForm({...form, passwordError: ''})}
+                   onBlur={() => {
+                    if (form.password === '') {
+                      setForm({...form, passwordError: Constants.PASSWORD_REQUIRED });
+                    } else {
+                      setForm({...form, passwordError: '' });
+                    }
+                  }}
                 />
 
                 {/* ForgotPassword */}
                 <TextButton
-                  textStyle = {{textAlign: 'right'}}
+                  textStyle = {styles.forgotStyle}
                   title = {Constants.FORGOT_PASSWORD_TITLE}
+                  onPress={() => {
+                    navigation.navigate('ForgotPasswordScreen')
+                  }}
                 />
 
                 {/* Button */}
                 <PrimaryButton
                   style = {styles.buttonContainer}
                   title = {Constants.LOGIN_BUTTON_TITLE}
-                  onPress={() => {
-                    console.log('hi');
-                    
-                  }}
+                  onPress={handleLogIn}
                 />
 
                 {/* Don't have an account? Register */}

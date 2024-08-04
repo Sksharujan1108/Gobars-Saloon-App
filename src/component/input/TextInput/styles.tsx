@@ -10,7 +10,7 @@ import {
 
 export const styles = StyleSheet.create({
     root: {
-        flex: 1,
+        // flex: 1,
     },
     inputContainer: {
         flexDirection: 'row',
@@ -18,7 +18,7 @@ export const styles = StyleSheet.create({
         width: '100%',
         height: hp(6),
         paddingLeft: hp(2),
-        marginBottom: hp(3),
+        marginTop: hp(1),
         borderColor: ColorSheet.textDefaultColor,
         borderWidth: 1,
         borderRadius: 5,
@@ -26,7 +26,7 @@ export const styles = StyleSheet.create({
     iconContainer: {},
     textInput: {
         flex: 1,
-        fontSize: RFValue(14),
+        fontSize: RFValue(12),
         paddingVertical: hp(1.5),
         fontWeight: '500',
         color: ColorSheet.Secondary,

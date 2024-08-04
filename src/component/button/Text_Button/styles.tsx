@@ -1,4 +1,4 @@
-import { StyleSheet } from 'react-native';
+import { Platform, StyleSheet } from 'react-native';
 import {
   heightPercentageToDP as hp,
   widthPercentageToDP as wp,
@@ -11,7 +11,7 @@ export const styles = StyleSheet.create({
         borderRadius: 1,
     },
     txt_style: {
-        fontSize: RFValue(14),
+        fontSize: Platform.OS == 'android' ? RFValue(14) : RFValue(12),
         textAlign: 'center',
         fontWeight: '500',
         color: ColorSheet?.textDefaultColor,

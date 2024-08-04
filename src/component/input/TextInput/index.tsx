@@ -58,7 +58,7 @@ const TextInputField = (props: TextInputProps) => {
 
   return (
     <View style={[styles.root, containerStyle]}>
-      <View style={styles.inputContainer}>
+      <View style={[styles.inputContainer, containerStyle]}>
         {/* Icon */}
         {/* <View style={styles.iconContainer}>
           <Icon name = "phone" size={24} color="black" />

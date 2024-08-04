@@ -9,6 +9,7 @@ import {
 export const styles = StyleSheet.create({
   root: {
     flex: 1,
+    // backgroundColor: 'red'
   },
   imgContainer: {
     flex: 0.5,
@@ -21,36 +22,46 @@ export const styles = StyleSheet.create({
   },
   imgPicStyle: {
     position: 'absolute',
-    top: hp(3),
+    top: Platform.OS == 'android' ? hp(3) : hp(3),
     width: wp(90),
     height: hp(50),
     resizeMode: "contain",
     // backgroundColor: 'pink'
   },
   loginBottomContainer: {
-    flex: 0.6,
+    flex: Platform.OS == 'android' ? 0.6 : 0.6,
     borderTopLeftRadius: 20,
     borderTopRightRadius: 20,
     backgroundColor: ColorSheet.White,
   },
   mainViewContainer: {
-    margin: hp(2),
+    padding: hp(2),
     // backgroundColor: 'red' 
   },
   title: {
-    fontSize: RFValue(18),
+    fontSize: Platform.OS == 'android' ? RFValue(20) : RFValue(18),
     fontWeight: "bold",
     color: ColorSheet.Secondary,
   },
   SubTitle: {
-    paddingTop: hp(2),
-    paddingBottom: hp(2),
-    fontSize: RFValue(13),
+    paddingTop: hp(1),
+    fontSize: Platform.OS == 'android' ? RFValue(15) : RFValue(13),
+    fontWeight: '400',
+    textAlign: 'left',
     color: ColorSheet.textDefaultColor,
+  },
+  inputTitle: {
+    marginTop: hp(2),
+    fontSize: Platform.OS == 'android' ? RFValue(14) : RFValue(12),
+    fontWeight: "500",
+    color: ColorSheet.InputTitleText,
+  },
+  forgotStyle: {
+    textAlign: 'right', 
+    marginTop: hp(2.5),
   },
   buttonContainer: {
     marginTop: hp(2),
-    marginBottom: hp(2),
     paddingHorizontal: wp(10),
     paddingVertical: hp(1.5),
     borderRadius: hp(1),
@@ -60,11 +71,11 @@ export const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
-    marginTop: hp(1),
+    marginTop: hp(1.5),
     // backgroundColor: 'pink'
   },
   registerText: {
-    fontSize: RFValue(13),
+    fontSize: Platform.OS == 'android' ? RFValue(14) : RFValue(13),
     fontWeight: "bold",
     color: ColorSheet.textDefaultColor,
   },
