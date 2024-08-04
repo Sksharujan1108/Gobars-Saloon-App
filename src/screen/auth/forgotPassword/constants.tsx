@@ -4,6 +4,7 @@ export const Constants = {
 
     EMAIL_PLACEHOLDER: 'Joesamanta@gmail.com',
     EMAIL_REQUIRED: 'Email is required',
+    VALID_EMAIL: `Please enter a valid email`,
 
     SEND_BUTTON_TITLE: 'Send',
     BACK: 'Back'

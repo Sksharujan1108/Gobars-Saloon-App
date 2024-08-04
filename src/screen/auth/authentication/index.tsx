@@ -45,6 +45,10 @@ const Authentication = ({navigation}: AuthStackScreenProps<'AuthenticationScreen
         <TextButton
           textStyle = {styles.notReceiveText}
           title = {Constants.NOT_RECEIVE}
+          onPress={() => {
+            console.log('resentOtp');
+            
+          }}
         />
 
       </View>

@@ -8,6 +8,8 @@ import TextButton from '@/component/button/Text_Button';
 import PrimaryButton from '@/component/button/PrimaryButton';
 import { ColorSheet } from '@/utilis/ColorSheet';
 import { AuthStackScreenProps } from '@/navigation/navigation_Models/auth_Models/authModels';
+import { isEmail, isPassword } from '@/utilis/validations';
+import { ErrorFlash } from '@/utilis/flashMessage';
 
 const LogIn = ({navigation}: AuthStackScreenProps<'LogInScreen'>) => {
     const [form, setForm] = useState({
@@ -18,13 +20,17 @@ const LogIn = ({navigation}: AuthStackScreenProps<'LogInScreen'>) => {
     });
 
     const handleLogIn = () => {
-        if (form.email === '') {
-            Alert.alert(Constants.EMAIL_REQUIRED)
-        } else if (form.password === '') {
-            Alert.alert(Constants.PASSWORD_REQUIRED)
-        } else {
+      if (isEmail(form.email)) {
+          ErrorFlash(Constants.VALID_EMAIL)
+      } else if (form.email === '') {
+          ErrorFlash(Constants.EMAIL_REQUIRED)
+      } else if (isPassword(form.password)) {
+          ErrorFlash(Constants.VALID_PASS)
+      } else if (form.password === '') {
+          ErrorFlash(Constants.PASSWORD_REQUIRED)
+      } else {
             // 
-        }
+      }
     }
 
   return (

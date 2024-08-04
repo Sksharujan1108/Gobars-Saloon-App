@@ -8,6 +8,8 @@ import PrimaryButton from '@/component/button/PrimaryButton'
 import TextButton from '@/component/button/Text_Button'
 import { ColorSheet } from '@/utilis/ColorSheet'
 import MobileBackLogoHeader from '@/component/Back_LogoHeader'
+import { ErrorFlash } from '@/utilis/flashMessage'
+import { isEmail } from '@/utilis/validations'
 
 const ForgotPassword = ({navigation}: AuthStackScreenProps<'ForgotPasswordScreen'>) => {
     const [form, setForm] = useState({
@@ -16,14 +18,16 @@ const ForgotPassword = ({navigation}: AuthStackScreenProps<'ForgotPasswordScreen
     });
 
     const onPressSend = () => {
-        if (form.email === '') {
-            Alert.alert(Constants.EMAIL_REQUIRED)
-        } else {
-            navigation.navigate('AuthenticationScreen', {
-                email: form.email
-            })
-        }
-    }
+      if (form.email === '') {
+          ErrorFlash(Constants.EMAIL_REQUIRED)
+      } else if (!isEmail(form.email)) {
+          ErrorFlash(Constants.VALID_EMAIL)
+      } else {
+          navigation.navigate('AuthenticationScreen', {
+              email: form.email
+          })
+      }
+  }
 
   return (
     <View style = {styles.root}>

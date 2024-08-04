@@ -2,10 +2,9 @@ import { showMessage } from 'react-native-flash-message';
 import { StyleSheet, Vibration } from 'react-native';
 import { ColorSheet } from './ColorSheet';
 
-
 const duration = 3500;
 
-export const ErrorFlash = (description: string) => {
+export const ErrorFlash = (description: any) => {
   showMessage({
     textStyle: styles.textStyle,
     titleStyle: styles.titleStyle,
@@ -19,7 +18,7 @@ export const ErrorFlash = (description: string) => {
   Vibration.vibrate();
 };
 
-export const SuccessFlash = (description: string) => {
+export const SuccessFlash = (description: any) => {
   showMessage({
     textStyle: styles.textStyle,
     titleStyle: styles.titleStyle,
@@ -32,7 +31,7 @@ export const SuccessFlash = (description: string) => {
   });
 };
 
-export const WarningFlash = (description: string) => {
+export const WarningFlash = (description: any) => {
   showMessage({
     textStyle: styles.textStyle,
     titleStyle: styles.titleStyle,
@@ -46,6 +45,6 @@ export const WarningFlash = (description: string) => {
 };
 
 const styles = StyleSheet.create({
-  textStyle: { paddingLeft: 10,},
-  titleStyle: { paddingLeft: 10,},
+  textStyle: { paddingLeft: 10 },
+  titleStyle: { paddingLeft: 10 },
 });
