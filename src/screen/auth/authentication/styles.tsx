@@ -34,7 +34,7 @@ export const styles = StyleSheet.create({
     backgroundColor: ColorSheet.PrimaryButton,
   },
   notReceiveText: {
-    fontSize: RFValue(14),
+    fontSize: Platform.OS == 'android' ? RFValue(16) : RFValue(14),
     marginTop: hp(3),
     fontWeight: "700",
     textAlign: 'center',

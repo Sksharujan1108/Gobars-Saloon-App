@@ -16,7 +16,7 @@ export const styles = StyleSheet.create({
     // 
     cell: {
         width: wp(16),
-        height: hp(7),
+        height: Platform.OS == 'android' ? hp(8) : hp(7),
         marginHorizontal: hp(1),
         borderRadius: 10,
         borderWidth: 1,

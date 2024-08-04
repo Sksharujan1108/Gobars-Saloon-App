@@ -4,7 +4,7 @@ import { ColorSheet } from './ColorSheet';
 
 const duration = 3500;
 
-export const ErrorFlash = (description: any) => {
+export const ErrorFlash = (description: string) => {
   showMessage({
     textStyle: styles.textStyle,
     titleStyle: styles.titleStyle,
@@ -18,7 +18,7 @@ export const ErrorFlash = (description: any) => {
   Vibration.vibrate();
 };
 
-export const SuccessFlash = (description: any) => {
+export const SuccessFlash = (description: string) => {
   showMessage({
     textStyle: styles.textStyle,
     titleStyle: styles.titleStyle,
@@ -31,7 +31,7 @@ export const SuccessFlash = (description: any) => {
   });
 };
 
-export const WarningFlash = (description: any) => {
+export const WarningFlash = (description: string) => {
   showMessage({
     textStyle: styles.textStyle,
     titleStyle: styles.titleStyle,
@@ -45,6 +45,6 @@ export const WarningFlash = (description: any) => {
 };
 
 const styles = StyleSheet.create({
-  textStyle: { paddingLeft: 10 },
-  titleStyle: { paddingLeft: 10 },
+  textStyle: { paddingLeft: 10,},
+  titleStyle: { paddingLeft: 10,},
 });
