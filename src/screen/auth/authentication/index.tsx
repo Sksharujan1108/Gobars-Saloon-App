@@ -29,7 +29,7 @@ const Authentication = ({navigation}: AuthStackScreenProps<'AuthenticationScreen
           }
         />
         {/* SubTitle */}
-        <Text style = {styles.subTitle}> {Constants.SUB_TITLE} </Text>
+        <Text style = {styles.subTitle}>{Constants.SUB_TITLE} </Text>
       
         {/* Code Input */}
         <EmailOtpField/>

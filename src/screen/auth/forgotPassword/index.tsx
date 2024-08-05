@@ -43,7 +43,7 @@ const ForgotPassword = ({navigation}: AuthStackScreenProps<'ForgotPasswordScreen
           }
         />
         {/* SubTitle */}
-        <Text style = {styles.subTitle}> {Constants.SUB_TITLE} </Text>
+        <Text style = {styles.subTitle}>{Constants.SUB_TITLE} </Text>
       
         {/* Email Input */}
         <Text style = {styles.inputTitle}> {'Email'} </Text>

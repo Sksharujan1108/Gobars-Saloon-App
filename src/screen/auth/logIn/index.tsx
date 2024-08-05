@@ -60,9 +60,9 @@ const LogIn = ({navigation}: AuthStackScreenProps<'LogInScreen'>) => {
         >
             <View style = {styles.mainViewContainer}>
                 {/* WelCome Title */}
-                <Text style = {styles.title}> {Constants.TITLE} </Text>
+                <Text style = {styles.title}>{Constants.TITLE} </Text>
                 {/* Sub Title */}
-                <Text style = {styles.SubTitle}> {Constants.SUB_TITLE} </Text>
+                <Text style = {styles.SubTitle}>{Constants.SUB_TITLE} </Text>
                 
                 {/* Input Field */}
                 {/* Email Input Field */}
