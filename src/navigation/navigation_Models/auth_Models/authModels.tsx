@@ -4,6 +4,7 @@ export type AuthStackParamList = {
   SplashScreen: undefined;
   OnBoardingScreen: undefined;
   LogInScreen: undefined;
+  RegisterScreen: undefined;
   ForgotPasswordScreen: undefined;
   AuthenticationScreen: {
     email: string;

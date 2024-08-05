@@ -7,18 +7,20 @@ import OnBoarding from '@/screen/auth/onBoarding';
 import LogIn from '@/screen/auth/logIn';
 import ForgotPassword from '@/screen/auth/forgotPassword';
 import Authentication from '@/screen/auth/authentication';
+import Register from '@/screen/auth/Register';
 
 const Stack = createNativeStackNavigator<AuthStackParamList>();
 
 const AuthStack = () => {
   return (
     <Stack.Navigator
-      initialRouteName = 'LogInScreen'
+      initialRouteName = 'RegisterScreen'
       screenOptions = {{ headerShown: false }}
     >
         <Stack.Screen name = "SplashScreen" component = {Splash} />
         <Stack.Screen name = "OnBoardingScreen" component = {OnBoarding} />
         <Stack.Screen name = "LogInScreen" component = {LogIn} />
+        <Stack.Screen name = "RegisterScreen" component = {Register} />
         <Stack.Screen name = "ForgotPasswordScreen" component = {ForgotPassword} />
         <Stack.Screen name = "AuthenticationScreen" component = {Authentication} />
     </Stack.Navigator>
