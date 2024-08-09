@@ -14,7 +14,7 @@ const Stack = createNativeStackNavigator<AuthStackParamList>();
 const AuthStack = () => {
   return (
     <Stack.Navigator
-      initialRouteName = 'RegisterScreen'
+      initialRouteName = 'LogInScreen'
       screenOptions = {{ headerShown: false }}
     >
         <Stack.Screen name = "SplashScreen" component = {Splash} />

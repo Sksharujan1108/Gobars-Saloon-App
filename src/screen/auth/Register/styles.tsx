@@ -11,6 +11,10 @@ export const styles = StyleSheet.create({
     flex: 1,
     // alignItems: 'center',
   },
+  scrollView: {
+    width: '100%',
+    paddingBottom: hp(5),
+  },
   mainViewContainer: {
     width: '90%',
     marginTop: Platform.OS == 'android' ? hp(10) : hp(4),
@@ -29,18 +33,14 @@ export const styles = StyleSheet.create({
     marginTop: hp(1),
     // backgroundColor: 'red'
   },
-  scrollView: {
-    width: '100%',
-    paddingBottom: hp(2),
-  },
   inputTitle: {
-    marginTop: hp(1),
+    marginTop: Platform.OS == 'android' ? hp(3) : hp(2),
     fontSize: RFValue(14),
     fontWeight: "500",
     color: ColorSheet.InputTitleText,
   },
   buttonContainer: {
-    marginTop: hp(3),
+    marginTop: Platform.OS == 'android' ? hp(5) : hp(3),
     paddingHorizontal: wp(10),
     paddingVertical: hp(1.5),
     borderRadius: hp(1),

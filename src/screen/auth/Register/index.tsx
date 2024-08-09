@@ -1,4 +1,13 @@
-import { Alert, SafeAreaView, StyleSheet, Text, View } from "react-native";
+import {
+  Alert,
+  KeyboardAvoidingView,
+  Platform,
+  SafeAreaView,
+  ScrollView,
+  StyleSheet,
+  Text,
+  View,
+} from "react-native";
 import React, { useState } from "react";
 import { Constants } from "./constants";
 import { styles } from "./styles";
@@ -9,7 +18,7 @@ import TextButton from "@/component/button/Text_Button";
 import MobileBackLogoHeader from "@/component/Back_LogoHeader";
 import { ErrorFlash } from "@/utilis/flashMessage";
 import { isEmail } from "@/utilis/validations";
-import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view";
+import NumberInputDropDown from "@/component/input/NumberDropDown";
 
 const Register = ({ navigation }: AuthStackScreenProps<"RegisterScreen">) => {
   const [form, setForm] = useState({
@@ -25,39 +34,62 @@ const Register = ({ navigation }: AuthStackScreenProps<"RegisterScreen">) => {
     confirmPasswordError: "",
   });
 
+  const defaultValue = {
+    label: "Sri Lanka",
+    value: "+94",
+    image: "https://cdn.countryflags.com/thumbs/sri-lanka/flag-400.png",
+  };
+
+  const [code, setCode] = useState(defaultValue);
+
   const onPressSend = () => {
-    if (form.email === "") {
+    if (form.name === "") {
+      ErrorFlash(Constants.NAME_REQUIRED);
+    } else if (form.email === "") {
       ErrorFlash(Constants.EMAIL_REQUIRED);
     } else if (!isEmail(form.email)) {
       ErrorFlash(Constants.VALID_EMAIL);
+    } else if (form.phoneNumber == '') {
+      ErrorFlash(Constants.PHONE_REQUIRED);
+    } else if (form.phoneNumber.length <= 10) {
+      ErrorFlash(Constants.VALID_PHONE);
+    } else if (form.password == '') {
+      ErrorFlash(Constants.PASSWORD_REQUIRED);
+    } else if (form.confirmPassword == '') {
+      ErrorFlash(Constants.CONFIRM_PASSWORD_REQUIRED);
+    } else if (form.password != form.confirmPassword) {
+      ErrorFlash(Constants.VALID_CONFIRM_PASS);
     } else {
-      navigation.navigate("AuthenticationScreen", {
-        email: form.email,
-      });
+      navigation.popToTop()
     }
   };
 
   return (
-    <View style={styles.root}>
+    <KeyboardAvoidingView
+      style={styles.root}
+      behavior={Platform.OS == "ios" ? "padding" : "height"}
+    >
       {/* SafeArea */}
       <SafeAreaView style={{ flex: 1 }}>
-        {/* Main View Container */}
-        <View style={styles.mainViewContainer}>
-          {/* Title */}
-          <MobileBackLogoHeader
-            headerTitle={Constants.TITLE}
-            onPress={() => navigation.goBack()}
-          />
-          {/* SubTitle */}
-          <Text style={styles.subTitle}>{Constants.SUB_TITLE} </Text>
+        {/* Scroll View */}
+        <ScrollView
+          contentContainerStyle={styles.scrollView}
+          showsVerticalScrollIndicator={false}
+          showsHorizontalScrollIndicator={false}
+        >
+          <View style={styles.mainViewContainer}>
+            {/* Title */}
+            <MobileBackLogoHeader
+              headerTitle={Constants.TITLE}
+              onPress={() => {
+                navigation.goBack();
+              }}
+            />
+            {/* SubTitle */}
+            <Text style={styles.subTitle}>{Constants.SUB_TITLE} </Text>
 
-          {/* input Main Container  */}
-          <View style={styles.inputMainContainer}>
-            <KeyboardAwareScrollView
-              contentContainerStyle = {styles.scrollView}
-              showsVerticalScrollIndicator = {false}
-              showsHorizontalScrollIndicator = {false}
-            >
+            {/* input Main Container  */}
+            <View style={styles.inputMainContainer}>
               {/* Name Input */}
               <Text style={styles.inputTitle}> {"Name"} </Text>
               <TextInputField
@@ -88,6 +120,33 @@ const Register = ({ navigation }: AuthStackScreenProps<"RegisterScreen">) => {
                     setForm({ ...form, emailError: Constants.EMAIL_REQUIRED });
                   } else {
                     setForm({ ...form, emailError: "" });
+                  }
+                }}
+              />
+
+              {/* Phone Number */}
+              <Text style={styles.inputTitle}> {"Phone Number"} </Text>
+              <NumberInputDropDown
+                data={numberData}
+                value={code}
+                onChange={(value: any) => setCode(value)}
+                valueNumber={form.phoneNumber}
+                onChangeNumber={(number) =>
+                  setForm({ ...form, phoneNumber: number })
+                }
+                placeholder={Constants.PHONE_NUMBER}
+                onFocus={() => setForm({ ...form, phoneNumberError: "" })}
+                textError={form.phoneNumberError}
+                onBlur={() => {
+                  if (form.phoneNumber === "") {
+                    setForm({
+                      ...form,
+                      phoneNumberError: Constants.PHONE_REQUIRED,
+                    });
+                  } else if (form.phoneNumber >= 10) {
+                    setForm({ ...form, phoneNumberError: Constants.VALID_PHONE });
+                  } else {
+                    setForm({ ...form, phoneNumberError: "" });
                   }
                 }}
               />
@@ -157,14 +216,72 @@ const Register = ({ navigation }: AuthStackScreenProps<"RegisterScreen">) => {
                 <TextButton
                   textStyle={styles.textButtonStyle}
                   title={Constants.LOGIN_BUTTON_TITLE}
+                  onPress={() => {
+                    navigation.navigate("LogInScreen");
+                  }}
                 />
               </View>
-            </KeyboardAwareScrollView>
+            </View>
           </View>
-        </View>
+        </ScrollView>
       </SafeAreaView>
-    </View>
+    </KeyboardAvoidingView>
   );
 };
 
 export default Register;
+
+const numberData = [
+  {
+    label: "Sri Lanka",
+    value: "+94",
+    image: "https://cdn.countryflags.com/thumbs/sri-lanka/flag-400.png",
+  },
+  {
+    label: "United Kingdom",
+    value: "+44",
+    image: "https://cdn.countryflags.com/thumbs/united-kingdom/flag-400.png",
+  },
+  {
+    label: "India",
+    value: "+91",
+    image: "https://cdn.countryflags.com/thumbs/india/flag-400.png",
+  },
+  {
+    label: "United States",
+    value: "+1",
+    image:
+      "https://cdn.countryflags.com/thumbs/united-states-of-america/flag-400.png",
+  },
+  {
+    label: "Canada",
+    value: "+1",
+    image: "https://cdn.countryflags.com/thumbs/canada/flag-400.png",
+  },
+  {
+    label: "Australia",
+    value: "+61",
+    image: "https://cdn.countryflags.com/thumbs/australia/flag-400.png",
+  },
+  {
+    label: "Germany",
+    value: "+49",
+    image: "https://cdn.countryflags.com/thumbs/germany/flag-400.png",
+  },
+  {
+    label: "France",
+    value: "+33",
+    image: "https://cdn.countryflags.com/thumbs/france/flag-400.png",
+  },
+  {
+    label: "Japan",
+    value: "+81",
+    image: "https://cdn.countryflags.com/thumbs/japan/flag-400.png",
+  },
+  {
+    label: "United Arab Emirates",
+    value: "+971",
+    image:
+      "https://cdn.countryflags.com/thumbs/united-arab-emirates/flag-400.png",
+  },
+];
