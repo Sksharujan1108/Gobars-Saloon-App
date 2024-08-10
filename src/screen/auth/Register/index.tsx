@@ -127,7 +127,7 @@ const Register = ({ navigation }: AuthStackScreenProps<"RegisterScreen">) => {
               <NumberInputDropDown
                 data={numberData}
                 valueCode={code.value}
-                onChangeCode={(item) => setCode(item)}
+                onChangeCode={(item: any) => setCode(item)}
                 valueNumber={form.phoneNumber}
                 onChangeNumber={(number) => setForm({ ...form, phoneNumber: number })}
                 placeholder={Constants.PHONE_NUMBER}
@@ -173,7 +173,7 @@ const Register = ({ navigation }: AuthStackScreenProps<"RegisterScreen">) => {
                   if (form.confirmPassword === "") {
                     setForm({ ...form, confirmPasswordError: Constants.CONFIRM_PASSWORD_REQUIRED });
                   } else if (form.password !== form.confirmPassword) {
-                    setForm({ ...form, confirmPasswordError: Constants.VALID_PASS });
+                    setForm({ ...form, confirmPasswordError: Constants.VALID_CONFIRM_PASS });
                   } else {
                     setForm({ ...form, confirmPasswordError: "" });
                   }
