@@ -54,6 +54,12 @@ export const styles = StyleSheet.create({
         marginTop: hp(0.5),
         width: wp(90),
     },
+
+    // code 
+    codeView: {},
+    code: {},
+
+    // text Input
     textInput: {
         flex: 1,
         fontSize: RFValue(12),

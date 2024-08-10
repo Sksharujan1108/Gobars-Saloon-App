@@ -40,7 +40,13 @@ const Register = ({ navigation }: AuthStackScreenProps<"RegisterScreen">) => {
     image: "https://cdn.countryflags.com/thumbs/sri-lanka/flag-400.png",
   };
 
-  const [code, setCode] = useState(defaultValue);
+  const [code, setCode] = useState({
+    label: defaultValue,
+    value: defaultValue.value,
+  });
+
+  console.log('code.value', code.value);
+  
 
   const onPressSend = () => {
     if (form.name === "") {
@@ -49,49 +55,43 @@ const Register = ({ navigation }: AuthStackScreenProps<"RegisterScreen">) => {
       ErrorFlash(Constants.EMAIL_REQUIRED);
     } else if (!isEmail(form.email)) {
       ErrorFlash(Constants.VALID_EMAIL);
-    } else if (form.phoneNumber == '') {
+    } else if (form.phoneNumber === "") {
       ErrorFlash(Constants.PHONE_REQUIRED);
     } else if (form.phoneNumber.length <= 10) {
       ErrorFlash(Constants.VALID_PHONE);
-    } else if (form.password == '') {
+    } else if (form.password === "") {
       ErrorFlash(Constants.PASSWORD_REQUIRED);
-    } else if (form.confirmPassword == '') {
+    } else if (form.confirmPassword === "") {
       ErrorFlash(Constants.CONFIRM_PASSWORD_REQUIRED);
-    } else if (form.password != form.confirmPassword) {
+    } else if (form.password !== form.confirmPassword) {
       ErrorFlash(Constants.VALID_CONFIRM_PASS);
     } else {
-      navigation.popToTop()
+      navigation.popToTop();
     }
   };
 
   return (
     <KeyboardAvoidingView
       style={styles.root}
-      behavior={Platform.OS == "ios" ? "padding" : "height"}
+      behavior={Platform.OS === "ios" ? "padding" : "height"}
     >
-      {/* SafeArea */}
       <SafeAreaView style={{ flex: 1 }}>
-        {/* Scroll View */}
         <ScrollView
           contentContainerStyle={styles.scrollView}
           showsVerticalScrollIndicator={false}
           showsHorizontalScrollIndicator={false}
         >
           <View style={styles.mainViewContainer}>
-            {/* Title */}
             <MobileBackLogoHeader
               headerTitle={Constants.TITLE}
               onPress={() => {
                 navigation.goBack();
               }}
             />
-            {/* SubTitle */}
-            <Text style={styles.subTitle}>{Constants.SUB_TITLE} </Text>
+            <Text style={styles.subTitle}>{Constants.SUB_TITLE}</Text>
 
-            {/* input Main Container  */}
             <View style={styles.inputMainContainer}>
-              {/* Name Input */}
-              <Text style={styles.inputTitle}> {"Name"} </Text>
+              <Text style={styles.inputTitle}>Name</Text>
               <TextInputField
                 placeholder={Constants.NAME_PLACEHOLDER}
                 value={form.name}
@@ -107,8 +107,7 @@ const Register = ({ navigation }: AuthStackScreenProps<"RegisterScreen">) => {
                 }}
               />
 
-              {/* Email Input */}
-              <Text style={styles.inputTitle}> {"Email"} </Text>
+              <Text style={styles.inputTitle}>Email</Text>
               <TextInputField
                 placeholder={Constants.EMAIL_PLACEHOLDER}
                 value={form.email}
@@ -124,26 +123,20 @@ const Register = ({ navigation }: AuthStackScreenProps<"RegisterScreen">) => {
                 }}
               />
 
-              {/* Phone Number */}
-              <Text style={styles.inputTitle}> {"Phone Number"} </Text>
+              <Text style={styles.inputTitle}>Phone Number</Text>
               <NumberInputDropDown
                 data={numberData}
-                value={code}
-                onChange={(value: any) => setCode(value)}
+                valueCode={code.value}
+                onChangeCode={(item) => setCode(item)}
                 valueNumber={form.phoneNumber}
-                onChangeNumber={(number) =>
-                  setForm({ ...form, phoneNumber: number })
-                }
+                onChangeNumber={(number) => setForm({ ...form, phoneNumber: number })}
                 placeholder={Constants.PHONE_NUMBER}
                 onFocus={() => setForm({ ...form, phoneNumberError: "" })}
                 textError={form.phoneNumberError}
                 onBlur={() => {
                   if (form.phoneNumber === "") {
-                    setForm({
-                      ...form,
-                      phoneNumberError: Constants.PHONE_REQUIRED,
-                    });
-                  } else if (form.phoneNumber >= 10) {
+                    setForm({ ...form, phoneNumberError: Constants.PHONE_REQUIRED });
+                  } else if (form.phoneNumber.length < 10) {
                     setForm({ ...form, phoneNumberError: Constants.VALID_PHONE });
                   } else {
                     setForm({ ...form, phoneNumberError: "" });
@@ -151,8 +144,7 @@ const Register = ({ navigation }: AuthStackScreenProps<"RegisterScreen">) => {
                 }}
               />
 
-              {/* Password Input */}
-              <Text style={styles.inputTitle}> {"Password"} </Text>
+              <Text style={styles.inputTitle}>Password</Text>
               <TextInputField
                 placeholder={Constants.PASSWORD_PLACEHOLDER}
                 value={form.password}
@@ -162,57 +154,40 @@ const Register = ({ navigation }: AuthStackScreenProps<"RegisterScreen">) => {
                 textError={form.passwordError}
                 onBlur={() => {
                   if (form.password === "") {
-                    setForm({
-                      ...form,
-                      passwordError: Constants.PASSWORD_REQUIRED,
-                    });
+                    setForm({ ...form, passwordError: Constants.PASSWORD_REQUIRED });
                   } else {
                     setForm({ ...form, passwordError: "" });
                   }
                 }}
               />
 
-              {/* Confirm Password Input */}
-              <Text style={styles.inputTitle}> {"Confirm Password"} </Text>
+              <Text style={styles.inputTitle}>Confirm Password</Text>
               <TextInputField
                 placeholder={Constants.CONFIRM_PASSWORD}
                 value={form.confirmPassword}
-                onChangeText={(text) =>
-                  setForm({ ...form, confirmPassword: text })
-                }
+                onChangeText={(text) => setForm({ ...form, confirmPassword: text })}
                 onFocus={() => setForm({ ...form, confirmPasswordError: "" })}
                 secureTextEntry
                 textError={form.confirmPasswordError}
                 onBlur={() => {
                   if (form.confirmPassword === "") {
-                    setForm({
-                      ...form,
-                      confirmPasswordError: Constants.CONFIRM_PASSWORD_REQUIRED,
-                    });
-                  } else if (form.password != form.confirmPassword) {
-                    setForm({
-                      ...form,
-                      confirmPasswordError: Constants.VALID_PASS,
-                    });
+                    setForm({ ...form, confirmPasswordError: Constants.CONFIRM_PASSWORD_REQUIRED });
+                  } else if (form.password !== form.confirmPassword) {
+                    setForm({ ...form, confirmPasswordError: Constants.VALID_PASS });
                   } else {
                     setForm({ ...form, confirmPasswordError: "" });
                   }
                 }}
               />
 
-              {/* Send Button */}
               <PrimaryButton
                 style={styles.buttonContainer}
                 title={Constants.REGISTER_BUTTON_TITLE}
                 onPress={onPressSend}
               />
 
-              {/* Already Have Acc */}
               <View style={styles.alreadyAccContainer}>
-                <Text style={styles.alreadyAccText}>
-                  {" "}
-                  {Constants.ALREADY_HAVE_TITLE}{" "}
-                </Text>
+                <Text style={styles.alreadyAccText}>{Constants.ALREADY_HAVE_TITLE}</Text>
                 <TextButton
                   textStyle={styles.textButtonStyle}
                   title={Constants.LOGIN_BUTTON_TITLE}
@@ -249,9 +224,8 @@ const numberData = [
   },
   {
     label: "United States",
-    value: "+1",
-    image:
-      "https://cdn.countryflags.com/thumbs/united-states-of-america/flag-400.png",
+    value: "+10",
+    image: "https://cdn.countryflags.com/thumbs/united-states-of-america/flag-400.png",
   },
   {
     label: "Canada",
@@ -281,7 +255,6 @@ const numberData = [
   {
     label: "United Arab Emirates",
     value: "+971",
-    image:
-      "https://cdn.countryflags.com/thumbs/united-arab-emirates/flag-400.png",
+    image: "https://cdn.countryflags.com/thumbs/united-arab-emirates/flag-400.png",
   },
 ];
