@@ -11,12 +11,17 @@ export const styles = StyleSheet.create({
     flex: 1,
     // backgroundColor: 'red'
   },
+  scrollView: {
+    flex: 1,
+    // 
+  },
   imgContainer: {
     flex: 0.5,
     alignItems: 'center',
   },
   imgBgStyle: {
     width: wp(100),
+    // height: hp(100),
     resizeMode: "cover",
     alignSelf: 'center',
   },

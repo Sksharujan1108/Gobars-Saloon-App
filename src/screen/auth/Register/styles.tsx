@@ -11,49 +11,55 @@ export const styles = StyleSheet.create({
     flex: 1,
     // alignItems: 'center',
   },
+  scrollView: {
+    width: '100%',
+    paddingBottom: hp(5),
+  },
   mainViewContainer: {
     width: '90%',
-    marginTop: Platform.OS == 'android' ? hp(15) : hp(10),
+    marginTop: Platform.OS == 'android' ? hp(10) : hp(4),
     alignSelf: 'center',
     // backgroundColor: 'pink'
   },
   subTitle: {
-    paddingTop: hp(2),
-    marginBottom: hp(3),
+    marginTop: hp(1),
     fontSize: RFValue(14),
     fontWeight: "400",
     textAlign: 'left',
     // backgroundColor: 'red',
     color: ColorSheet.Text2,
   },
+  inputMainContainer:{
+    marginTop: hp(1),
+    // backgroundColor: 'red'
+  },
+  inputTitle: {
+    marginTop: Platform.OS == 'android' ? hp(3) : hp(2),
+    fontSize: RFValue(14),
+    fontWeight: "500",
+    color: ColorSheet.InputTitleText,
+  },
   buttonContainer: {
-    marginTop: hp(5),
+    marginTop: Platform.OS == 'android' ? hp(5) : hp(3),
     paddingHorizontal: wp(10),
     paddingVertical: hp(1.5),
     borderRadius: hp(1),
     backgroundColor: ColorSheet.PrimaryButton,
   },
-  notReceiveBtn: {
+  alreadyAccContainer: {
+    marginTop: hp(2),
     flexDirection: 'row',
     alignItems: 'center',
-    justifyContent: 'center',
-    // backgroundColor: 'green',
-    marginTop: hp(3),
+    justifyContent: 'center'
   },
-  notReceiveText: {
-    fontSize: Platform.OS == 'android' ? RFValue(16) : RFValue(14),
-    fontWeight: "700",
-    textAlign: 'center',
+  alreadyAccText:{
+    fontSize: RFValue(13),
+    fontWeight: "500",
+    color: ColorSheet.InputTitleText,
+  },
+  textButtonStyle: {
+    fontSize: RFValue(13),
     textDecorationLine: 'underline',
-    color: ColorSheet.PrimaryButton,
-  },
-  timerText: {
-    width: hp(4),
-    // marginLeft: hp(1),
-    textAlign: 'center',
-    fontSize: Platform.OS == 'android' ? RFValue(16) : RFValue(15),
-    fontWeight: "700",
-    color: ColorSheet.PrimaryButton,
-    // backgroundColor: 'red'
+    color: ColorSheet.InputTitleText,
   },
 });
