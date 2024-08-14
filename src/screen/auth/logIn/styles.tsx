@@ -37,7 +37,7 @@ export const styles = StyleSheet.create({
     backgroundColor: ColorSheet.White,
   },
   scrollView: {
-    flex: 1,
+    // flex: 1,
     width: '100%',
     paddingBottom: hp(20),
     // 
@@ -65,7 +65,7 @@ export const styles = StyleSheet.create({
     color: ColorSheet.InputTitleText,
   },
   forgotStyle: {
-    textAlign: 'right', 
+    alignSelf: 'flex-end',
     marginTop: hp(2.5),
   },
   buttonContainer: {

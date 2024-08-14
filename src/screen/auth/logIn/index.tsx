@@ -7,6 +7,7 @@ import {
   StatusBar,
   StyleSheet,
   Text,
+  TouchableOpacity,
   View,
 } from "react-native";
 import React, { useState } from "react";
@@ -123,12 +124,23 @@ const LogIn = ({ navigation }: AuthStackScreenProps<"LogInScreen">) => {
 
             {/* ForgotPassword */}
             <TextButton
-              textStyle={styles.forgotStyle}
+              style = {styles.forgotStyle}
               title={Constants.FORGOT_PASSWORD_TITLE}
               onPress={() => {
                 navigation.navigate("ForgotPasswordScreen");
               }}
             />
+            {/* <TouchableOpacity
+              style = {{
+                // width: '40%',
+                alignSelf: 'flex-end',
+                backgroundColor: 'red'
+              }}
+            >
+              <Text>
+                {Constants.FORGOT_PASSWORD_TITLE}
+              </Text>
+            </TouchableOpacity> */}
 
             {/* Button */}
             <PrimaryButton

@@ -12,7 +12,7 @@ export const styles = StyleSheet.create({
     },
     txt_style: {
         fontSize: Platform.OS == 'android' ? RFValue(14) : RFValue(12),
-        textAlign: 'center',
+        // textAlign: 'center',
         fontWeight: '500',
         color: ColorSheet?.textDefaultColor,
     },
