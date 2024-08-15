@@ -23,9 +23,10 @@ import { styles } from "./styles"; // Ensure this path is correct
 
 interface NumberInputDropDownProps {
   data: { label: string; value: string; image: string }[];
-  valueCode: string;
-  onChangeCode: (item: { label: string; value: string }) => void;
+  value: string;
+  onChange: (item: { label: string; value: string }) => void;
   placeholder?: string;
+  placeholderNumber?: string;
   style?: StyleProp<ViewStyle>;
   containerStyle?: StyleProp<ViewStyle>;
   ErrorStyle?: StyleProp<ViewStyle>;
@@ -47,9 +48,10 @@ interface NumberInputDropDownProps {
 
 const NumberInputDropDown: React.FC<NumberInputDropDownProps> = ({
   data,
-  valueCode,
-  onChangeCode,
+  value,
+  onChange,
   placeholder,
+  placeholderNumber,
   style,
   containerStyle,
   ErrorStyle,
@@ -69,7 +71,7 @@ const NumberInputDropDown: React.FC<NumberInputDropDownProps> = ({
 }) => {
   const [focus, setFocus] = useState(false);
   const animationController = useRef(new Animated.Value(0)).current;
-
+  const [valueItem, setValueItem] = useState(value);
   const arrowTransform = animationController.interpolate({
     inputRange: [0, 1],
     outputRange: ["0deg", "180deg"],
@@ -85,8 +87,10 @@ const NumberInputDropDown: React.FC<NumberInputDropDownProps> = ({
 
   const renderItem = (item: { label: string; value: string }) => (
     <View style={[styles.rowItem, textItemStyle]}>
-      <Text style={[styles.textItem, textItemStyle]}>{item.label}</Text>
-      {item.value === valueCode && (
+      <Text style={[styles.textItem, textItemStyle]}>
+        {item.label} ({item.value})
+      </Text>
+      {item.value === valueItem && (
         <Octicons style={styles.icon} color={ColorSheet.Text2} name="check" size={20} />
       )}
     </View>
@@ -119,6 +123,11 @@ const NumberInputDropDown: React.FC<NumberInputDropDownProps> = ({
     </View>
   );
 
+  const onChangeValue = (value: any) => {
+    setValueItem(value)
+    onChange && onChange(value)
+  }
+
   return (
     <View style={[styles.root]}>
       <View style={[styles.mainInputContainer, style]}>
@@ -143,9 +152,9 @@ const NumberInputDropDown: React.FC<NumberInputDropDownProps> = ({
           }}
           labelField="value"
           valueField="label"
-          placeholder=""
-          value={valueCode}
-          onChange={onChangeCode}
+          placeholder=''
+          value={valueItem}
+          onChange={onChangeValue}
           renderItem={renderItem}
           dropdownPosition={dropdownPosition}
           disable={disable}

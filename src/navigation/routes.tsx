@@ -6,7 +6,7 @@ import AppBottomTop from './tabs/mobile_bottom_tab';
 const Routes = () => {
   return (
     <NavigationContainer>
-      <AppBottomTop/>
+      <AuthStack/>
     </NavigationContainer>
   )
 }
