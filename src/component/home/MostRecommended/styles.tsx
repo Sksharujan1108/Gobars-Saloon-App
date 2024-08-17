@@ -14,6 +14,8 @@ export const styles = StyleSheet.create({
   },
   Container: {
     width: "100%",
+    marginBottom: hp(3),
+    // backgroundColor:'red'
   },
   imageContainer: {
     width: "100%",
@@ -28,6 +30,7 @@ export const styles = StyleSheet.create({
     resizeMode: "contain",
     alignItems: "center",
     marginBottom: hp(2),
+    backgroundColor: 'red'
   },
   bookingBtn: {
     position: "absolute",
