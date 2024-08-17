@@ -9,11 +9,8 @@ import {
 export const styles = StyleSheet.create({
   root: {
     flex: 1,
+    // paddingBottom: hp(5),
     // backgroundColor: 'red'
-  },
-  scrollView: {
-    flex: 1,
-    // 
   },
   imgContainer: {
     flex: 0.5,
@@ -39,6 +36,12 @@ export const styles = StyleSheet.create({
     borderTopRightRadius: 20,
     backgroundColor: ColorSheet.White,
   },
+  scrollView: {
+    // flex: 1,
+    width: '100%',
+    paddingBottom: hp(20),
+    // 
+  },
   mainViewContainer: {
     padding: hp(2),
     // backgroundColor: 'red' 
@@ -62,7 +65,7 @@ export const styles = StyleSheet.create({
     color: ColorSheet.InputTitleText,
   },
   forgotStyle: {
-    textAlign: 'right', 
+    alignSelf: 'flex-end',
     marginTop: hp(2.5),
   },
   buttonContainer: {

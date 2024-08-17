@@ -7,6 +7,7 @@ import {
   StatusBar,
   StyleSheet,
   Text,
+  TouchableOpacity,
   View,
 } from "react-native";
 import React, { useState } from "react";
@@ -55,27 +56,27 @@ const LogIn = ({ navigation }: AuthStackScreenProps<"LogInScreen">) => {
         translucent={true}
       />
 
-      <ScrollView
-        contentContainerStyle={styles.scrollView}
-        showsVerticalScrollIndicator={false}
-        showsHorizontalScrollIndicator={false}
-      >
-        <View style={styles.imgContainer}>
-          {/* Image Bg */}
-          <Image
-            style={styles.imgBgStyle} // Apply the styles from styles.js
-            source={require("@/assets/image/LogIn/PicLogin.png")}
-          />
+      <View style={styles.imgContainer}>
+        {/* Image Bg */}
+        <Image
+          style={styles.imgBgStyle} // Apply the styles from styles.js
+          source={require("@/assets/image/LogIn/PicLogin.png")}
+        />
 
-          {/* Img Picture */}
-          <Image
-            style={styles.imgPicStyle} // Apply the styles from styles.js
-            source={require("@/assets/image/LogIn/Picture.png")}
-          />
-        </View>
+        {/* Img Picture */}
+        <Image
+          style={styles.imgPicStyle} // Apply the styles from styles.js
+          source={require("@/assets/image/LogIn/Picture.png")}
+        />
+      </View>
 
-        {/* LogIn Card */}
-        <View style={styles.loginBottomContainer}>
+      {/* LogIn Card */}
+      <View style={styles.loginBottomContainer}>
+        <ScrollView
+          contentContainerStyle={styles.scrollView}
+          showsVerticalScrollIndicator={false}
+          showsHorizontalScrollIndicator={false}
+        >
           <View style={styles.mainViewContainer}>
             {/* WelCome Title */}
             <Text style={styles.title}>{Constants.TITLE} </Text>
@@ -123,12 +124,23 @@ const LogIn = ({ navigation }: AuthStackScreenProps<"LogInScreen">) => {
 
             {/* ForgotPassword */}
             <TextButton
-              textStyle={styles.forgotStyle}
+              style = {styles.forgotStyle}
               title={Constants.FORGOT_PASSWORD_TITLE}
               onPress={() => {
                 navigation.navigate("ForgotPasswordScreen");
               }}
             />
+            {/* <TouchableOpacity
+              style = {{
+                // width: '40%',
+                alignSelf: 'flex-end',
+                backgroundColor: 'red'
+              }}
+            >
+              <Text>
+                {Constants.FORGOT_PASSWORD_TITLE}
+              </Text>
+            </TouchableOpacity> */}
 
             {/* Button */}
             <PrimaryButton
@@ -155,8 +167,8 @@ const LogIn = ({ navigation }: AuthStackScreenProps<"LogInScreen">) => {
               />
             </View>
           </View>
-        </View>
-      </ScrollView>
+        </ScrollView>
+      </View>
     </KeyboardAvoidingView>
   );
 };
