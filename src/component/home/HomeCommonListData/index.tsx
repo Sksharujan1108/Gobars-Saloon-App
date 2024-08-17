@@ -1,11 +1,11 @@
-import { FlatList, Image, ImageProps, Text, View } from "react-native";
+import { FlatList, Image, ImageProps, Text, TouchableOpacity, View } from "react-native";
 import React from "react";
 import { styles } from "./styles";
 import Entypo from "@expo/vector-icons/Entypo";
 import AntDesign from "@expo/vector-icons/AntDesign";
 import { ColorSheet } from "@/utilis/ColorSheet";
 
-interface NearestBarShopListProps {
+interface HomeCommonListDataProps {
   data: 
     {
       image: ImageProps;
@@ -15,7 +15,7 @@ interface NearestBarShopListProps {
     }[],
 }
 
-const NearestBarShopList = (props: NearestBarShopListProps) => {
+const HomeCommonListData = (props: HomeCommonListDataProps) => {
   const { data } = props;
   return (
     <View style={styles.root}>
@@ -24,7 +24,13 @@ const NearestBarShopList = (props: NearestBarShopListProps) => {
         data={data}
         keyExtractor={(item, index) => index.toString()}
         renderItem={({ item }) => (
-          <View style = {styles.container}>
+          <TouchableOpacity 
+            style = {styles.container}
+            activeOpacity={0.6}  // TouchableOpacity's activeOpacity
+            onPress={() => {
+              console.log('Item Clicked')
+            }}  // Function to call when item is clicked
+          >
             {/* Image */}
             <Image
               style={styles.imageStyle}
@@ -59,11 +65,11 @@ const NearestBarShopList = (props: NearestBarShopListProps) => {
               </View>
             </View>
 
-          </View>
+          </TouchableOpacity>
         )}
       />
     </View>
   );
 };
 
-export default NearestBarShopList;
+export default HomeCommonListData;

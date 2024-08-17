@@ -29,29 +29,32 @@ export const styles = StyleSheet.create({
     },
     columnContainer: {
         flexDirection: 'column',
-        marginLeft: wp(2),
+        marginLeft: wp(3),
+        // backgroundColor: 'yellow'
     },
     rowContainer: {
+        marginTop: hp(0.5),
         flexDirection: 'row',
         alignItems: 'center',
-        marginLeft: wp(1),
         // backgroundColor: 'yellow'
     },
     barName: {
-        width: wp(70),
-        fontSize: RFValue(14),
+        width: wp(65),
+        fontSize: Platform.OS == 'android' ? RFValue(14) :  RFValue(13),
+        fontWeight: '800',
         color: ColorSheet.InputTitleText,
-        marginLeft: wp(1),
         // backgroundColor: 'red'
     },
     location: {
-        fontSize: RFValue(12),
-        color: ColorSheet.textDefaultColor,
+        fontSize:  Platform.OS == 'android' ? RFValue(14) : RFValue(13),
+        fontWeight: '500',
+        color: ColorSheet.IconColor,
         marginLeft: wp(1),
     },
     points: {
-        fontSize: RFValue(12),
-        color: ColorSheet.textDefaultColor,
+        fontSize:  Platform.OS == 'android' ? RFValue(14) : RFValue(13),
+        fontWeight: '500',
+        color: ColorSheet.IconColor,
         marginLeft: wp(1),
     },
 });
