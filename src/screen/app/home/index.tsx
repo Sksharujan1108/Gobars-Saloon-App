@@ -7,8 +7,8 @@ import SearchInput from '@/component/input/SearchInput'
 import Setting from '@/assets/svg/home/settingHome.svg'
 import { Constants } from './constants'
 import SquareArrowRightUp from '@/assets/svg/home/SquareArrowRightUp.svg'
-import MostRecommended from '@/component/home/MostRecommended'
 import HomeCommonListData from '@/component/home/HomeCommonListData'
+import MostRecommendedBanner from '@/component/home/MostRecommended'
 
 const Home = () => {
   const [search, setSearch] = useState('')
@@ -79,7 +79,10 @@ const Home = () => {
           {/* Most recommended */}
           <View style = {styles.mostRecommendedContainer}>
             <Text style = {styles.listHeading}>{Constants.MUST_RECOMMENDED}</Text>
-            <MostRecommended/>
+            {/* Most Recommended Banner */}
+            <MostRecommendedBanner
+              data = {mostRecommendedBanner}
+            />
 
             {/* Most recommended List Of Data */}
             <HomeCommonListData 
@@ -130,6 +133,18 @@ const nearestBarShopList = [
   }
 ]
 
+// Most Recommended Banner
+const  mostRecommendedBanner = [
+  {
+    image: require('@/assets/image/Home/BarImg/HomeBar_2.png'),
+    barName: 'Master piece Barbershop - Haircut styling',
+    location: 'Banguntapan (5 km)',
+    points: 4.5,
+  },
+]
+
+
+// Most Recommended Data List
 const mostRecommended = [
   {
     image: require('@/assets/image/Home/MostRecommended/recommended1.png'),

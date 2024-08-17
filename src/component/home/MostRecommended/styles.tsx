@@ -9,6 +9,12 @@ import {
 // const { width: screenWidth, height: screenHeight } = Dimensions.get('window');
 
 export const styles = StyleSheet.create({
+  root: {
+    flex: 1,
+  },
+  Container: {
+    width: "100%",
+  },
   imageContainer: {
     width: "100%",
     height: hp(25),
@@ -19,7 +25,7 @@ export const styles = StyleSheet.create({
     width: "100%",
     height: hp(25),
     borderRadius: hp(2),
-    resizeMode: "cover",
+    resizeMode: "contain",
     alignItems: "center",
     marginBottom: hp(2),
   },
@@ -41,5 +47,29 @@ export const styles = StyleSheet.create({
     fontSize: RFValue(14),
     fontWeight: "700",
     color: ColorSheet.White,
+  },
+  barName: {
+    width: wp(65),
+    fontSize: Platform.OS == "android" ? RFValue(14) : RFValue(13),
+    fontWeight: "800",
+    color: ColorSheet.InputTitleText,
+  },
+  rowContainer: {
+    marginTop: hp(0.5),
+    flexDirection: "row",
+    alignItems: "center",
+    // backgroundColor: 'yellow'
+  },
+  location: {
+    fontSize: Platform.OS == "android" ? RFValue(14) : RFValue(13),
+    fontWeight: "500",
+    color: ColorSheet.IconColor,
+    marginLeft: wp(1),
+  },
+  points: {
+    fontSize: Platform.OS == "android" ? RFValue(14) : RFValue(13),
+    fontWeight: "500",
+    color: ColorSheet.IconColor,
+    marginLeft: wp(1),
   },
 });
