@@ -18,9 +18,10 @@ export const styles = StyleSheet.create({
         backgroundColor: ColorSheet.OtpFocus,
     },
     textInput: {
-        flex: 1,
+        width: '75%',
         height: hp(3),
         marginLeft: hp(1),
+        marginRight: hp(1),
         fontSize: RFValue(12),
         // backgroundColor: 'red'
     },

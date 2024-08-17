@@ -6,6 +6,7 @@ import HomeBanner from '@/component/home/HomeBanner'
 import SearchInput from '@/component/input/SearchInput'
 import Setting from '@/assets/svg/home/settingHome.svg'
 import { Constants } from './constants'
+import NearestBarShopList from '@/component/home/NearestBarShopList'
 
 const Home = () => {
   const [search, setSearch] = useState('')
@@ -54,7 +55,10 @@ const Home = () => {
           {/* Bar List */}
           <View style = {styles.barCarContainer}>
             {/* Nearest Babershop  */}
-            <Text style = {styles.listHeading}> {Constants.BAR_SHOP} </Text>
+            <Text style = {styles.listHeading}>{Constants.BAR_SHOP} </Text>
+            <NearestBarShopList
+              data = {nearestBarShopList}
+            />
           </View>
         </View>
       </ScrollView>
@@ -63,3 +67,24 @@ const Home = () => {
 }
 
 export default Home;
+
+const nearestBarShopList = [
+  {
+    image: require('@/assets/image/Home/BarImg/HomeBar_1.png'),
+    barName: 'Alana Barbershop - Haircut massage & Spa ',
+    location: 'Banguntapan (5 km)',
+    points: 4.5,
+  },
+  {
+    image: require('@/assets/image/Home/BarImg/HomeBar_2.png'),
+    barName: 'Hercha Barbershop - Haircut & Styling',
+    location: 'Jalan Kaliurang (8 km)',
+    points: 5.0,
+  },
+  {
+    image: require('@/assets/image/Home/BarImg/HomeBar_3.png'),
+    barName: 'Barberking - Haircut styling  & massage',
+    location: 'Jogja Expo Centre (12 km)',
+    points: 4.7,
+  }
+]

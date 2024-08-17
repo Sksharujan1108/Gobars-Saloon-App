@@ -37,12 +37,12 @@ export const styles = StyleSheet.create({
   barCarContainer: {
     width: '100%',
     marginTop: hp(2),
-    backgroundColor: 'pink'
+    // backgroundColor: 'pink'
   },
   listHeading: {
     fontSize: RFValue(14),
     fontWeight: '600',
     color: ColorSheet.InputTitleText,
-    marginBottom: hp(1.5),
+    marginBottom: hp(1),
   },
 });

@@ -68,7 +68,7 @@ const SearchInput = (props: SearchInputProps) => {
         >
           <AntDesign
             name="closecircle"
-            size={22}
+            size={24}
             color={ColorSheet.PrimaryButton}
           />
         </TouchableOpacity>
