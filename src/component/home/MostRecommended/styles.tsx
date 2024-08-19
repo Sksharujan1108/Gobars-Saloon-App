@@ -21,7 +21,7 @@ export const styles = StyleSheet.create({
     width: "100%",
     height: hp(25),
     marginTop: hp(1),
-    marginBottom: hp(3),
+    marginBottom: hp(1),
   },
   imgStyle: {
     width: "100%",
@@ -52,7 +52,7 @@ export const styles = StyleSheet.create({
     color: ColorSheet.White,
   },
   barName: {
-    width: wp(65),
+    width: "100%",
     fontSize: Platform.OS == "android" ? RFValue(14) : RFValue(13),
     fontWeight: "800",
     color: ColorSheet.InputTitleText,

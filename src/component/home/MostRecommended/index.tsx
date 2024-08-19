@@ -29,6 +29,10 @@ const MostRecommendedBanner = (props: MostRecommendedBannerProps) => {
     <View style={styles.root}>
       <FlatList
         data={data}
+        horizontal
+        contentContainerStyle = {{
+          gap: 10
+        }}
         keyExtractor={(item, index) => index.toString()}
         renderItem={({ item }) => (
           <View style={styles.Container}>

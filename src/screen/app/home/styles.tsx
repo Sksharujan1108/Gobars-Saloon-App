@@ -15,7 +15,7 @@ export const styles = StyleSheet.create({
   },
   scrollView: {
     flexGrow: 1,
-    paddingBottom: hp(5)
+    paddingBottom: hp(2)
   },
   MainContainer: {
     width: '100%',
@@ -47,28 +47,17 @@ export const styles = StyleSheet.create({
     color: ColorSheet.InputTitleText,
     marginBottom: hp(1),
   },
-  seeAllBtn: {
-    width: wp(30),
-    height: hp(6),
-    padding: hp(1),
-    marginTop: hp(2),
-    borderRadius: hp(1),
-    flexDirection: 'row',
-    alignItems: 'center',
-    alignSelf: 'center',
-    justifyContent: 'space-around',
-    borderWidth: 2,
-    borderColor: ColorSheet.PrimaryButton,
-  },
-  seeAllText: {
-    fontSize: RFValue(14),
-    fontWeight: '700',
-    color: ColorSheet.InputTitleText,
-  },
 
   mostRecommendedContainer: {
     width: '100%',
     marginTop: hp(3),
     // backgroundColor: 'pink'
+  },
+
+  // 
+  mapContainer: {
+    width: '100%',
+    marginTop: hp(3),
+    backgroundColor: 'pink'
   },
 });
