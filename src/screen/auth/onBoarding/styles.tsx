@@ -33,7 +33,7 @@ export const styles = StyleSheet.create({
         width: "100%",
         height: hp(26),
         paddingHorizontal: wp(5),
-        paddingVertical: hp(2),
+        paddingVertical: hp(1),
         borderTopLeftRadius: 25,
         borderTopRightRadius: 25,
         backgroundColor: ColorSheet.AnimationBottom,

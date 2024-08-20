@@ -7,8 +7,9 @@ import {
   widthPercentageToDP as wp,
 } from 'react-native-responsive-screen';
 import { ColorSheet } from "@/utilis/ColorSheet";
+import { AuthStackScreenProps } from "@/navigation/navigation_Models/auth_Models/authModels";
 
-const OnBoarding = () => {
+const OnBoarding = ({navigation}: AuthStackScreenProps<'OnBoardingScreen'>) => {
   const [data, setData] = useState(pages);
 
   const RenderItem = ({ item, index }: { item: any; index: number }) => {
@@ -47,7 +48,7 @@ const OnBoarding = () => {
               <TouchableOpacity
                 style={styles.getStartedButton}
                 onPress={() => {
-                  console.log("hi");
+                  navigation.navigate('LogInScreen')
                 }}
               >
                 <Text style={styles.getStartedButtonText}> Get Started </Text>

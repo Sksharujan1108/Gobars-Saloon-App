@@ -14,6 +14,16 @@ import FindLocation from "@/component/home/FindLocation";
 const Home = () => {
   const [search, setSearch] = useState("");
 
+  // Function to filter nearest barber shop list
+  const filteredNearestBarberShops = nearestBarShopList.filter((item) =>
+    item.barName.toLowerCase().includes(search.toLowerCase())
+  );
+
+  // Function to filter most recommended list
+  const filteredMostRecommended = mostRecommended.filter((item) =>
+    item.barName.toLowerCase().includes(search.toLowerCase())
+  );
+
   const [seeAll1, setSeeAll1] = useState(false);
 
   const [seeAll2, setSeeAll2] = useState(false);
@@ -60,51 +70,65 @@ const Home = () => {
             </TouchableOpacity>
           </View>
 
-          {/* Bar List */}
-          <View style={styles.barCarContainer}>
-            {/* Nearest Babershop  */}
-            <Text style={styles.listHeading}>{Constants.BAR_SHOP}</Text>
-            <HomeCommonListData data={nearestBarShopList} />
-          </View>
+          {/* Bar List Nearest Barber Shop*/}
+          <NearestBarberShop />
 
-          {/* See All Button*/}
+          {/* See All Button 1*/}
           <SeeAllButton
             onPress={() => {
-              setSeeAll1(!seeAll1)
+              setSeeAll1(!seeAll1);
             }}
           />
 
           {/* Most recommended */}
           {seeAll1 && (
-            <View style={styles.mostRecommendedContainer}>
-              <Text style={styles.listHeading}>
-                {Constants.MUST_RECOMMENDED}
-              </Text>
-              {/* Most Recommended Banner */}
-              <MostRecommendedBanner data={mostRecommendedBanner} />
-
-              {/* Most recommended List Of Data */}
-              <HomeCommonListData data={mostRecommended} />
+            <>
+              <MostRecommended />
 
               {/* See All 2 */}
               <SeeAllButton
                 onPress={() => {
-                  console.log("See All 2");
+                  setSeeAll2(!seeAll2);
                 }}
               />
-            </View>
+            </>
           )}
 
-          {/*  */}
-          <View style = {styles.mapContainer}>
-            {/*  */}
-            <Text style={styles.listHeading}>
-              {Constants.FIND_BAR_BER}
-            </Text>
-            <FindLocation/>
-          </View>
+          {/* See All 2 */}
+          {seeAll2 && (
+            <View style={styles.mapContainer}>
+              {/*  */}
+              <Text style={styles.listHeading}>{Constants.FIND_BAR_BER}</Text>
+              <FindLocation />
+            </View>
+          )}
         </View>
       </ScrollView>
+    </View>
+  );
+};
+
+// Nearest Barber Shop
+const NearestBarberShop = () => {
+  return (
+    <View style={styles.barCarContainer}>
+      {/* Nearest Babershop  */}
+      <Text style={styles.listHeading}>{Constants.BAR_SHOP}</Text>
+      <HomeCommonListData data={nearestBarShopList} />
+    </View>
+  );
+};
+
+// Most recommended
+const MostRecommended = () => {
+  return (
+    <View style={styles.mostRecommendedContainer}>
+      <Text style={styles.listHeading}>{Constants.MUST_RECOMMENDED}</Text>
+      {/* Most Recommended Banner */}
+      <MostRecommendedBanner data={mostRecommendedBanner} />
+
+      {/* Most recommended List Of Data */}
+      <HomeCommonListData data={mostRecommended} />
     </View>
   );
 };
@@ -140,18 +164,18 @@ const mostRecommendedBanner = [
     location: "Banguntapan (5 km)",
     points: 4.5,
   },
-  // {
-  //   image: require("@/assets/image/Home/BarImg/HomeBar_1.png"),
-  //   barName: "Alana Barbershop - Haircut massage & Spa ",
-  //   location: "Banguntapan (5 km)",
-  //   points: 4.5,
-  // },
-  // {
-  //   image: require("@/assets/image/Home/MostRecommended/recommended3.png"),
-  //   barName: "Barberman - Haircut styling & massage",
-  //   location: "J-Walk Centre  (17 km)",
-  //   points: 4.7,
-  // },
+  {
+    image: require("@/assets/image/Home/BarImg/HomeBar_1.png"),
+    barName: "Alana Barbershop - Haircut massage & Spa ",
+    location: "Banguntapan (5 km)",
+    points: 4.5,
+  },
+  {
+    image: require("@/assets/image/Home/MostRecommended/recommended3.png"),
+    barName: "Barberman - Haircut styling & massage",
+    location: "J-Walk Centre  (17 km)",
+    points: 4.7,
+  },
 ];
 
 // Most Recommended Data List

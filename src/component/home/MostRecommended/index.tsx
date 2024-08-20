@@ -31,7 +31,7 @@ const MostRecommendedBanner = (props: MostRecommendedBannerProps) => {
         data={data}
         horizontal
         contentContainerStyle = {{
-          gap: 10
+          gap: 10,
         }}
         keyExtractor={(item, index) => index.toString()}
         renderItem={({ item }) => (

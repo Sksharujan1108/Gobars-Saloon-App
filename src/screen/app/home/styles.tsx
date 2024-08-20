@@ -58,6 +58,6 @@ export const styles = StyleSheet.create({
   mapContainer: {
     width: '100%',
     marginTop: hp(3),
-    backgroundColor: 'pink'
+    // backgroundColor: 'pink'
   },
 });
