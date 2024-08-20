@@ -33,16 +33,10 @@ const Register = ({ navigation }: AuthStackScreenProps<"RegisterScreen">) => {
     confirmPassword: "",
     confirmPasswordError: "",
   });
-
-  const defaultValue = {
-    label: "Sri Lanka",
-    value: "+94",
-    image: "https://cdn.countryflags.com/thumbs/sri-lanka/flag-400.png",
-  };
-
+  
   const [code, setCode] = useState({
-    label: defaultValue,
-    value: defaultValue.value,
+    label: "Sri Lanka", // Set default value
+    value: "+94",
   });
 
   console.log('code.value', code.value);
@@ -126,8 +120,9 @@ const Register = ({ navigation }: AuthStackScreenProps<"RegisterScreen">) => {
               <Text style={styles.inputTitle}>Phone Number</Text>
               <NumberInputDropDown
                 data={numberData}
-                valueCode={code.value}
-                onChangeCode={(item: any) => setCode(item)}
+                value={code.value}
+                onChange={(item: any) => setCode(item)}
+                // placeholderNumber = {'+49'}
                 valueNumber={form.phoneNumber}
                 onChangeNumber={(number) => setForm({ ...form, phoneNumber: number })}
                 placeholder={Constants.PHONE_NUMBER}

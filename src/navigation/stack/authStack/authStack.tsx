@@ -8,13 +8,14 @@ import LogIn from '@/screen/auth/logIn';
 import ForgotPassword from '@/screen/auth/forgotPassword';
 import Authentication from '@/screen/auth/authentication';
 import Register from '@/screen/auth/Register';
+import AppBottomTop from '@/navigation/tabs/mobile_bottom_tab';
 
 const Stack = createNativeStackNavigator<AuthStackParamList>();
 
 const AuthStack = () => {
   return (
     <Stack.Navigator
-      initialRouteName = 'LogInScreen'
+      initialRouteName = 'AppBottomTopScreen'
       screenOptions = {{ headerShown: false }}
     >
         <Stack.Screen name = "SplashScreen" component = {Splash} />
@@ -23,6 +24,8 @@ const AuthStack = () => {
         <Stack.Screen name = "RegisterScreen" component = {Register} />
         <Stack.Screen name = "ForgotPasswordScreen" component = {ForgotPassword} />
         <Stack.Screen name = "AuthenticationScreen" component = {Authentication} />
+        {/* Add the Bottom Stack */}
+        <Stack.Screen name = "AppBottomTopScreen" component = {AppBottomTop} />
     </Stack.Navigator>
   )
 }

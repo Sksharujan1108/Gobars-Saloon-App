@@ -1,25 +1,21 @@
 import {
-  Alert,
   Image,
   KeyboardAvoidingView,
   Platform,
   ScrollView,
   StatusBar,
-  StyleSheet,
   Text,
-  TouchableOpacity,
   View,
 } from "react-native";
 import React, { useState } from "react";
 import { styles } from "./styles";
 import { Constants } from "./constants";
-import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view";
 import TextInputField from "@/component/input/TextInput";
 import TextButton from "@/component/button/Text_Button";
 import PrimaryButton from "@/component/button/PrimaryButton";
 import { ColorSheet } from "@/utilis/ColorSheet";
 import { AuthStackScreenProps } from "@/navigation/navigation_Models/auth_Models/authModels";
-import { isEmail, isPassword } from "@/utilis/validations";
+import { isPassword, isString } from "@/utilis/validations";
 import { ErrorFlash } from "@/utilis/flashMessage";
 
 const LogIn = ({ navigation }: AuthStackScreenProps<"LogInScreen">) => {
@@ -31,7 +27,7 @@ const LogIn = ({ navigation }: AuthStackScreenProps<"LogInScreen">) => {
   });
 
   const handleLogIn = () => {
-    if (isEmail(form.email)) {
+    if (isString(form.email)) {
       ErrorFlash(Constants.VALID_EMAIL);
     } else if (form.email === "") {
       ErrorFlash(Constants.EMAIL_REQUIRED);
@@ -40,7 +36,7 @@ const LogIn = ({ navigation }: AuthStackScreenProps<"LogInScreen">) => {
     } else if (form.password === "") {
       ErrorFlash(Constants.PASSWORD_REQUIRED);
     } else {
-      //
+      navigation.navigate('AppBottomTopScreen')
     }
   };
 

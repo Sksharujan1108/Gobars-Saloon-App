@@ -22,6 +22,6 @@ export const ColorSheet = {
   Error: '#FF0000',
   Success: '#169D04',
   Warning: '#FFA500',
- 
-  
+  SearchBox: '#EBF0F5',
+  IconColor: '#8683A1'
 };

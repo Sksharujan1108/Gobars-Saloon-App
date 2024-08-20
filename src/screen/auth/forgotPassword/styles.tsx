@@ -13,7 +13,7 @@ export const styles = StyleSheet.create({
   },
   mainViewContainer: {
     width: '90%',
-    marginTop: Platform.OS == 'android' ? hp(15) : hp(10),
+    marginTop: Platform.OS == 'android' ? hp(15) : hp(5),
     alignSelf: 'center',
     // backgroundColor: 'pink'
   },

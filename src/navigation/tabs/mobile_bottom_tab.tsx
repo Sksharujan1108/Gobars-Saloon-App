@@ -39,7 +39,7 @@ const AppBottomTop = () => {
             tabBarStyle: {
                 backgroundColor: ColorSheet.White,
                 borderTopWidth: 0,
-                height: Platform.OS == 'android' ? hp(10) : hp(6)
+                height: Platform.OS == 'android' ? hp(10) : hp(7)
             },
             tabBarShowLabel: false,
           }
@@ -158,7 +158,7 @@ const styles = StyleSheet.create({
   iconView: {
     alignItems: 'center',
     justifyContent: 'space-between',
-    marginTop: Platform.OS == 'ios' ? hp(2) : hp(0),
+    marginTop: Platform.OS == 'ios' ? hp(2.5) : hp(0),
     // backgroundColor: 'red'
   },
   labelText: {

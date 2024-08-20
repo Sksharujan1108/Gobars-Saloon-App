@@ -9,6 +9,7 @@ export type AuthStackParamList = {
   AuthenticationScreen: {
     email: string;
   };
+  AppBottomTopScreen: undefined;
 };
 
 export type AuthStackScreenProps<Screen extends keyof AuthStackParamList> = StackScreenProps<
