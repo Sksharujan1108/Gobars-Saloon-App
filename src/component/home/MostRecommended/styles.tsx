@@ -13,7 +13,7 @@ export const styles = StyleSheet.create({
     flex: 1,
   },
   Container: {
-    width: "100%",
+    width: wp(90),
     marginBottom: hp(3),
     // backgroundColor:'red'
   },
@@ -27,7 +27,7 @@ export const styles = StyleSheet.create({
     width: "100%",
     height: hp(25),
     borderRadius: hp(2),
-    resizeMode: "contain",
+    resizeMode: 'stretch',
     alignItems: "center",
     marginBottom: hp(2),
     backgroundColor: 'red'

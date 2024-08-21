@@ -3,7 +3,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import AuthStack from '@/navigation/stack/authStack/authStack';
 import AppBottomTop from './tabs/mobile_bottom_tab';
 import FindLocation from '@/component/home/FindLocation';
-import ImageSlider from '@/component/ImageSlider';
+
 
 const Routes = () => {
   return (

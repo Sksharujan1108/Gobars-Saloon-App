@@ -159,19 +159,19 @@ const nearestBarShopList = [
 // Most Recommended Banner
 const mostRecommendedBanner = [
   {
-    image: require("@/assets/image/Home/BarImg/HomeBar_2.png"),
+    imageSource: require("@/assets/image/Home/MostRecommended/Banner/HomePic2.png"),
     barName: "Master piece Barbershop - Haircut styling",
     location: "Banguntapan (5 km)",
     points: 4.5,
   },
   {
-    image: require("@/assets/image/Home/BarImg/HomeBar_1.png"),
+    imageSource: require("@/assets/image/Home/MostRecommended/Banner/HomePic2.png"),
     barName: "Alana Barbershop - Haircut massage & Spa ",
     location: "Banguntapan (5 km)",
     points: 4.5,
   },
   {
-    image: require("@/assets/image/Home/MostRecommended/recommended3.png"),
+    imageSource: require("@/assets/image/Home/MostRecommended/Banner/HomePic2.png"),
     barName: "Barberman - Haircut styling & massage",
     location: "J-Walk Centre  (17 km)",
     points: 4.7,
