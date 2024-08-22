@@ -8,10 +8,12 @@ import { styles } from './styles';
 import { Constants } from './constants';
 import EmailOtpField from '@/screen/global/EmailOtp';
 import MaterialCommunityIcons from '@expo/vector-icons/MaterialCommunityIcons';
+import { ErrorFlash } from '@/utilis/flashMessage';
 
 const Authentication = ({navigation}: AuthStackScreenProps<'AuthenticationScreen'>) => {
-
+  const [otp, setOtp] = useState();
   const [seconds, setSeconds] = useState(60);
+
   const [isDisable, setIsDisable] = useState(true)
 
   useEffect(() => {
@@ -37,7 +39,10 @@ const Authentication = ({navigation}: AuthStackScreenProps<'AuthenticationScreen
   };
 
   const onPressSend = () => {
-
+    if (otp !== 4) {
+      ErrorFlash(Constants.ENTER_VALID_OTP)
+    }
+    navigation.goBack()
   };
 
   return (
@@ -57,7 +62,12 @@ const Authentication = ({navigation}: AuthStackScreenProps<'AuthenticationScreen
         <Text style = {styles.subTitle}>{Constants.SUB_TITLE} </Text>
       
         {/* Code Input */}
-        <EmailOtpField/>
+        <EmailOtpField
+          maskEnable = {true}
+          onChangeValue = {(otp: any) => {
+            setOtp(otp)
+          }}
+        />
 
         {/* Send Button */}
         <PrimaryButton

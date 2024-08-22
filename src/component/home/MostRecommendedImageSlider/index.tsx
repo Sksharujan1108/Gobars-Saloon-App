@@ -1,10 +1,10 @@
 import {
-  View,
-  Image,
   FlatList,
+  Image,
+  ImageProps,
   Text,
   TouchableOpacity,
-  SafeAreaView,
+  View,
 } from "react-native";
 import React, { useCallback, useState } from "react";
 import Carousel from "react-native-reanimated-carousel";
@@ -13,13 +13,17 @@ import {
   heightPercentageToDP as hp,
   widthPercentageToDP as wp,
 } from "react-native-responsive-screen";
+import CalendarMark from "@/assets/svg/home/CalendarMark.svg";
+import { Constants } from "./constants";
 import Entypo from "@expo/vector-icons/Entypo";
 import AntDesign from "@expo/vector-icons/AntDesign";
-import { Constants } from "./constants";
-import CalendarMark from "@/assets/svg/home/CalendarMark.svg";
 import { ColorSheet } from "@/utilis/ColorSheet";
 
-const ImageSlider = () => {
+interface MostRecommendedImageSliderProps {
+  
+}
+
+const MostRecommendedImageSlider = (props: MostRecommendedImageSliderProps) => {
   const [activeSlide, setActiveSlide] = useState(0);
 
   const onSnapToItem = useCallback((index: number) => {
@@ -54,7 +58,7 @@ const ImageSlider = () => {
         width={wp(100)}
         height={hp(40)}
         autoPlay
-        autoPlayInterval={5000}
+        autoPlayInterval={4000}
         data={data}
         scrollAnimationDuration={1000}
         renderItem={({ item, index }) => (
@@ -114,4 +118,4 @@ const ImageSlider = () => {
   );
 };
 
-export default ImageSlider;
+export default MostRecommendedImageSlider;

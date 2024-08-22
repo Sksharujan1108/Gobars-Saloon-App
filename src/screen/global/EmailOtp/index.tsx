@@ -1,5 +1,5 @@
 import { Keyboard, Text, View } from "react-native";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 import {
   CodeField,
   Cursor,
@@ -18,26 +18,34 @@ interface renderCellProps {
 
 interface EmailOtpFieldProps {
     onFulfill?: (value: string) => void;
-    onClear?: () => void;
-    error?: string;
     value?: string;
-    onPress?: (value?: string) => void
-    onPressResend?: () => void
+    onChangeValue?: (value: string) => void;
+    onPress?: (value?: string) => void;
+    maskEnable?: boolean;
 }
 
 const EmailOtpField = (props: EmailOtpFieldProps) => {
     const {
-        onPressResend
+      onChangeValue,
+      maskEnable,
     } = props;
 
-  const [enableMask, setEnableMask] = useState(true);
+  const [enableMask, setEnableMask] = useState<boolean | undefined>(false);
   const [isKeyboardVisible, setIsKeyboardVisible] = useState(false);
-  const [value, setValue] = useState('');
+  const [value, setValue] = useState<string>('');
   const codeFieldRef = useBlurOnFulfill({ value, cellCount: CELL_COUNT });
   const [codeFieldProps, getCellOnLayoutHandler] = useClearByFocusCell({
     value,
     setValue,
   });
+
+  useMemo(() => {
+    onChangeValue && onChangeValue(value);
+  }, [value])
+
+  useMemo(() => {
+    setEnableMask(maskEnable);
+  }, [maskEnable]);
 
   const renderCell = ({index, symbol, isFocused}: renderCellProps) => {
     let textChild = null;

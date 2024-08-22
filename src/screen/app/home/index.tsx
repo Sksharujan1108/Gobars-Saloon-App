@@ -1,5 +1,5 @@
 import { Text, View, ScrollView, TouchableOpacity } from "react-native";
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import MobileTopHeader from "@/component/MobileTopHeader";
 import { styles } from "./styles";
 import HomeBanner from "@/component/home/HomeBanner";
@@ -7,13 +7,17 @@ import SearchInput from "@/component/input/SearchInput";
 import Setting from "@/assets/svg/home/settingHome.svg";
 import { Constants } from "./constants";
 import HomeCommonListData from "@/component/home/HomeCommonListData";
-import MostRecommendedBanner from "@/component/home/MostRecommended";
 import SeeAllButton from "@/component/button/SeeAllBtn";
 import FindLocation from "@/component/home/FindLocation";
-import ImageSlider from "@/component/ImageSlider";
+import MostRecommendedImageSlider from "@/component/home/MostRecommendedImageSlider";
+import HomeFilterPopUp from "./Dialog/FliterPopUp";
+import { BottomSheetModal } from "@gorhom/bottom-sheet";
 
 const Home = () => {
   const [search, setSearch] = useState("");
+
+  // ref
+  const bottomSheetModalRef = useRef<BottomSheetModal>(null);
 
   // Function to filter nearest barber shop list
   const filteredNearestBarberShops = nearestBarShopList.filter((item) =>
@@ -28,6 +32,11 @@ const Home = () => {
   const [seeAll1, setSeeAll1] = useState(false);
 
   const [seeAll2, setSeeAll2] = useState(false);
+
+  // handleFilter
+  const handleFilter = () => {
+    bottomSheetModalRef.current?.present();
+  }
 
   return (
     <View style={styles.rootContainer}>
@@ -63,9 +72,7 @@ const Home = () => {
             <TouchableOpacity
               style={styles.fliterBtn}
               activeOpacity={0.5}
-              onPress={() => {
-                console.log("Filter");
-              }}
+              onPress={handleFilter}
             >
               <Setting />
             </TouchableOpacity>
@@ -105,6 +112,11 @@ const Home = () => {
           )}
         </View>
       </ScrollView>
+
+      <HomeFilterPopUp
+        bottomSheetModalRef = {bottomSheetModalRef}
+      />
+
     </View>
   );
 };
@@ -126,7 +138,7 @@ const MostRecommended = () => {
     <View style={styles.mostRecommendedContainer}>
       <Text style={styles.listHeading}>{Constants.MUST_RECOMMENDED}</Text>
       {/* Most Recommended Banner */}
-      <ImageSlider />
+      <MostRecommendedImageSlider />
 
       {/* Most recommended List Of Data */}
       <HomeCommonListData data={mostRecommended} />
