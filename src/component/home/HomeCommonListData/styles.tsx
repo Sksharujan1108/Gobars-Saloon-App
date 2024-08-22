@@ -17,8 +17,9 @@ export const styles = StyleSheet.create({
         flexDirection: 'row',
         alignItems: 'center',
         borderRadius: hp(1),
+        marginTop: hp(3),
         // backgroundColor: ColorSheet.OtpFocus,
-        marginVertical: hp(1),
+        // marginVertical: hp(1),
     },
     imageStyle: {
         width: wp(23),

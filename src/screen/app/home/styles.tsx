@@ -45,13 +45,11 @@ export const styles = StyleSheet.create({
     fontSize: Platform.OS == 'ios' ? RFValue(14) : RFValue(16),
     fontWeight: '600',
     color: ColorSheet.InputTitleText,
-    marginBottom: hp(1),
   },
 
   mostRecommendedContainer: {
     width: '100%',
-    marginTop: hp(3),
-    // backgroundColor: 'pink'
+    marginTop: hp(1),
   },
 
   // 

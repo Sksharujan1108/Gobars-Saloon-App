@@ -10,6 +10,7 @@ import HomeCommonListData from "@/component/home/HomeCommonListData";
 import MostRecommendedBanner from "@/component/home/MostRecommended";
 import SeeAllButton from "@/component/button/SeeAllBtn";
 import FindLocation from "@/component/home/FindLocation";
+import ImageSlider from "@/component/ImageSlider";
 
 const Home = () => {
   const [search, setSearch] = useState("");
@@ -82,7 +83,7 @@ const Home = () => {
 
           {/* Most recommended */}
           {seeAll1 && (
-            <>
+            <View style = {styles.mostRecommendedContainer}>
               <MostRecommended />
 
               {/* See All 2 */}
@@ -91,7 +92,7 @@ const Home = () => {
                   setSeeAll2(!seeAll2);
                 }}
               />
-            </>
+            </View>
           )}
 
           {/* See All 2 */}
@@ -125,7 +126,7 @@ const MostRecommended = () => {
     <View style={styles.mostRecommendedContainer}>
       <Text style={styles.listHeading}>{Constants.MUST_RECOMMENDED}</Text>
       {/* Most Recommended Banner */}
-      <MostRecommendedBanner data={mostRecommendedBanner} />
+      <ImageSlider />
 
       {/* Most recommended List Of Data */}
       <HomeCommonListData data={mostRecommended} />
@@ -152,28 +153,6 @@ const nearestBarShopList = [
     image: require("@/assets/image/Home/BarImg/HomeBar_3.png"),
     barName: "Barberking - Haircut styling  & massage",
     location: "Jogja Expo Centre (12 km)",
-    points: 4.7,
-  },
-];
-
-// Most Recommended Banner
-const mostRecommendedBanner = [
-  {
-    imageSource: require("@/assets/image/Home/MostRecommended/Banner/HomePic2.png"),
-    barName: "Master piece Barbershop - Haircut styling",
-    location: "Banguntapan (5 km)",
-    points: 4.5,
-  },
-  {
-    imageSource: require("@/assets/image/Home/MostRecommended/Banner/HomePic2.png"),
-    barName: "Alana Barbershop - Haircut massage & Spa ",
-    location: "Banguntapan (5 km)",
-    points: 4.5,
-  },
-  {
-    imageSource: require("@/assets/image/Home/MostRecommended/Banner/HomePic2.png"),
-    barName: "Barberman - Haircut styling & massage",
-    location: "J-Walk Centre  (17 km)",
     points: 4.7,
   },
 ];

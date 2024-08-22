@@ -9,20 +9,12 @@ import {
 // const { width: screenWidth, height: screenHeight } = Dimensions.get('window');
 
 export const styles = StyleSheet.create({
-//   container: {
-//     ...StyleSheet.absoluteFillObject,
-//     height: 400,
-//     width: 400,
-//     justifyContent: 'flex-end',
-//     alignItems: 'center',
-//   },
-  map: {
-    ...StyleSheet.absoluteFillObject,
-    // width: wp(30),
-    // height: hp(20),
-
-  },
-container: {
+  container: {
     flex: 1,
+  },
+  map: {
+    marginTop: hp(2),
+    width: wp(100),
+    height: hp(50)
   },
 });
