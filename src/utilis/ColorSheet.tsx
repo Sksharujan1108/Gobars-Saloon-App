@@ -1,6 +1,6 @@
 export const ColorSheet = {
   Primary: '#5F9EA0',
-  Secondary: '#131313',
+  Secondary: '#000000',
   AppBackground: '#1F1B2C',
   PrimaryBackground: '#EDEDED',
   AnimationBottom: '#FFA500',
@@ -23,5 +23,7 @@ export const ColorSheet = {
   Success: '#169D04',
   Warning: '#FFA500',
   SearchBox: '#EBF0F5',
-  IconColor: '#8683A1'
+  IconColor: '#8683A1',
+  subTitle: '#888888',
+  BorderColor: '#2F2F2F',
 };
