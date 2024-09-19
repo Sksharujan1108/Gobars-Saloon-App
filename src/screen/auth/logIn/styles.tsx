@@ -9,15 +9,24 @@ import {
 export const styles = StyleSheet.create({
   root: {
     flex: 1,
+    // alignItems: 'center',
+    // justifyContent: 'center',
   },
   container: {
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
   },
+  scrollView: {
+    flexGrow: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
+    paddingBottom: hp(3),
+  },
   main_container: {
     width: wp(90),
     padding: hp(2),
+    marginTop: hp(6),
     alignItems: 'center',
     borderRadius: hp(2),
     backgroundColor: ColorSheet.White,

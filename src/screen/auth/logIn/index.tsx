@@ -2,6 +2,7 @@ import {
   Alert,
   KeyboardAvoidingView,
   Platform,
+  ScrollView,
   StatusBar,
   Text,
   View,
@@ -43,6 +44,15 @@ const LogIn = ({ navigation }: AuthStackScreenProps<"LogInScreen">) => {
   };
 
   return (
+
+    <LinearGradient
+        colors={["#888888", "#ffffff", "#888888"]} // Dark top-left, light center, dark bottom-right
+        style={styles.container}
+        start={{ x: 0.1, y: 0 }} // Adjusting top-left starting point
+        end={{ x: 0.5, y: 1 }} // Adjusting bottom-right ending point
+        locations={[0, 0.5, 1]} // Gradient stops to emphasize the center lightness
+      >
+
     <KeyboardAvoidingView
       style={styles.root}
       behavior={Platform.OS == "ios" ? "padding" : "height"}
@@ -54,13 +64,11 @@ const LogIn = ({ navigation }: AuthStackScreenProps<"LogInScreen">) => {
         translucent={true}
       />
 
-      <LinearGradient
-        colors={["#888888", "#ffffff", "#888888"]} // Dark top-left, light center, dark bottom-right
-        style={styles.container}
-        start={{ x: 0.1, y: 0 }} // Adjusting top-left starting point
-        end={{ x: 0.5, y: 1 }} // Adjusting bottom-right ending point
-        locations={[0, 0.5, 1]} // Gradient stops to emphasize the center lightness
-      >
+        <ScrollView
+          contentContainerStyle={styles.scrollView}
+          showsVerticalScrollIndicator={false}
+          showsHorizontalScrollIndicator={false}
+        >
         <View style={styles.main_container}>
           {/* Heading Title */}
           <Text style={styles.heading_title}> {Constants.TITLE} </Text>
@@ -166,8 +174,11 @@ const LogIn = ({ navigation }: AuthStackScreenProps<"LogInScreen">) => {
           </View>
           </View>
         </View>
-      </LinearGradient>
+        </ScrollView>
+      
     </KeyboardAvoidingView>
+
+    </LinearGradient>
   );
 };
 
