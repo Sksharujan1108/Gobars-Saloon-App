@@ -9,54 +9,37 @@ import {
 export const styles = StyleSheet.create({
   root: {
     flex: 1,
-    // paddingBottom: hp(5),
-    // backgroundColor: 'red'
   },
-  imgContainer: {
-    flex: 0.5,
+  container: {
+    flex: 1,
     alignItems: 'center',
+    justifyContent: 'center',
   },
-  imgBgStyle: {
-    width: wp(100),
-    // height: hp(100),
-    resizeMode: "cover",
-    alignSelf: 'center',
-  },
-  imgPicStyle: {
-    position: 'absolute',
-    top: Platform.OS == 'android' ? hp(3) : hp(3),
+  main_container: {
     width: wp(90),
-    height: hp(50),
-    resizeMode: "contain",
-    // backgroundColor: 'pink'
-  },
-  loginBottomContainer: {
-    flex: Platform.OS == 'android' ? 0.6 : 0.6,
-    borderTopLeftRadius: 20,
-    borderTopRightRadius: 20,
+    height: hp(70),
+    padding: hp(2),
+    alignItems: 'center',
+    borderRadius: hp(2),
     backgroundColor: ColorSheet.White,
   },
-  scrollView: {
-    // flex: 1,
-    width: '100%',
-    paddingBottom: hp(20),
-    // 
-  },
-  mainViewContainer: {
-    padding: hp(2),
-    // backgroundColor: 'red' 
-  },
-  title: {
-    fontSize: Platform.OS == 'android' ? RFValue(20) : RFValue(18),
-    fontWeight: "bold",
+  heading_title: {
+    marginTop: hp(3),
+    fontSize: RFValue(16),
+    fontWeight: '700',
+    textAlign: 'center',
     color: ColorSheet.Secondary,
   },
-  SubTitle: {
-    paddingTop: hp(1),
-    fontSize: Platform.OS == 'android' ? RFValue(15) : RFValue(13),
-    fontWeight: '400',
-    textAlign: 'left',
-    color: ColorSheet.textDefaultColor,
+  sub_title: {
+    marginTop: hp(2),
+    fontSize: RFValue(10),
+    // fontWeight: '400',
+    textAlign: 'center',
+    color: ColorSheet.Text2,
+  },
+  input_field_container: {
+    width: '100%',
+    backgroundColor: 'red'
   },
   inputTitle: {
     marginTop: hp(2),
@@ -69,11 +52,12 @@ export const styles = StyleSheet.create({
     marginTop: hp(2.5),
   },
   buttonContainer: {
+    width: '100%',
     marginTop: hp(2),
     paddingHorizontal: wp(10),
     paddingVertical: hp(1.5),
     borderRadius: hp(1),
-    backgroundColor: ColorSheet.PrimaryButton,
+    backgroundColor: ColorSheet.Secondary,
   },
   registerContainer: {
     flexDirection: 'row',
@@ -85,6 +69,6 @@ export const styles = StyleSheet.create({
   registerText: {
     fontSize: Platform.OS == 'android' ? RFValue(14) : RFValue(13),
     fontWeight: "bold",
-    color: ColorSheet.textDefaultColor,
+    color: ColorSheet.Text2,
   },
 });

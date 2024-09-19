@@ -7,7 +7,7 @@ export const ColorSheet = {
   PrimaryText: '#D9D9D9',
   SecondaryText: '#2793E1',
   InputTitleText: '#111827',
-  Text2: '#6B7280',
+  Text2: '#6C7278',
   Text3: '#586166',
   Text4: '#A8A8A8',
   Text5: '#444849',

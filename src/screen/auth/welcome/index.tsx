@@ -1,4 +1,4 @@
-import { Image, StyleSheet, Text, View } from 'react-native';
+import { Image, StyleSheet, Text, View, Platform } from 'react-native';
 import React from 'react';
 import { LinearGradient } from "expo-linear-gradient";
 import {
@@ -9,7 +9,7 @@ import { ColorSheet } from '@/utilis/ColorSheet';
 import { RFValue } from 'react-native-responsive-fontsize';
 import PrimaryButton from '@/component/button/PrimaryButton';
 
-const SplashScreen = () => {
+const Welcome = () => {
   return (
     <View style={styles.container}>
       <View style={styles.imgBackgroundContainer}>
@@ -59,7 +59,7 @@ const SplashScreen = () => {
   );
 }
 
-export default SplashScreen;
+export default Welcome;
 
 const styles = StyleSheet.create({
   container: {
@@ -87,23 +87,23 @@ const styles = StyleSheet.create({
   headingContainer: {
     width: wp(90),
     position: 'absolute',
-    bottom: 0,
+    bottom: Platform.OS == 'ios' ? 5 : 0,
     // backgroundColor: 'red'
   },
   heading_text: {
-    fontSize: RFValue(32),
+    fontSize: Platform.OS == 'ios' ? RFValue(28) : RFValue(32),
     fontWeight: '700',
     textAlign: 'center',
     color: ColorSheet.White,
     // marginTop: ,
   },
   subTitle_container: {
-    width: wp(70),
+    width: wp(80),
     marginTop: hp(2),
     // backgroundColor: 'red'
   },
   subTitle: {
-    fontSize: RFValue(14),
+    fontSize: Platform.OS == 'ios' ? RFValue(12) : RFValue(14),
     fontWeight: '700',
     textAlign: 'center',
     lineHeight: hp(3.5),
@@ -111,7 +111,7 @@ const styles = StyleSheet.create({
   },
   buttonContainer: {
     width: wp(100),
-    marginTop: hp(4),
+    marginTop: Platform.OS == 'ios' ? hp(2) : hp(4),
     padding: hp(3),
   },
   getStart_button: {
@@ -120,7 +120,7 @@ const styles = StyleSheet.create({
     backgroundColor: ColorSheet.White,
   },
   get_start_text: {
-    fontSize: RFValue(18),
+    fontSize: Platform.OS == 'ios' ? RFValue(16) : RFValue(18),
     fontWeight: '700',
     textAlign: 'center',
     color: ColorSheet.Secondary,
@@ -134,7 +134,7 @@ const styles = StyleSheet.create({
     backgroundColor: ColorSheet.Secondary,
   },
   login_text: {
-    fontSize: RFValue(18),
+    fontSize: Platform.OS == 'ios' ? RFValue(16) : RFValue(18),
     fontWeight: '700',
     textAlign: 'center',
     color: ColorSheet.White,

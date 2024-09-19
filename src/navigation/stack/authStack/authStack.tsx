@@ -9,16 +9,18 @@ import ForgotPassword from '@/screen/auth/forgotPassword';
 import Authentication from '@/screen/auth/authentication';
 import Register from '@/screen/auth/Register';
 import AppBottomTop from '@/navigation/tabs/mobile_bottom_tab';
+import Welcome from '@/screen/auth/welcome';
 
 const Stack = createNativeStackNavigator<AuthStackParamList>();
 
 const AuthStack = () => {
   return (
     <Stack.Navigator
-      initialRouteName = 'OnBoardingScreen'
+      initialRouteName = 'LogInScreen'
       screenOptions = {{ headerShown: false }}
     >
         <Stack.Screen name = "SplashScreen" component = {Splash} />
+        <Stack.Screen name = "WelcomeScreen" component = {Welcome} />
         <Stack.Screen name = "OnBoardingScreen" component = {OnBoarding} />
         <Stack.Screen name = "LogInScreen" component = {LogIn} />
         <Stack.Screen name = "RegisterScreen" component = {Register} />
