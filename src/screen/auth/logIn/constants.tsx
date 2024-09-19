@@ -2,6 +2,9 @@ export const Constants = {
     TITLE: 'Get Started now 👋',
     SUB_TITLE: 'Create an account or log in to explore our app',
 
+    GOOGLE: 'Sign in with Google',
+    FACEBOOK: 'Sign in with Facebook',
+
     EMAIL_PLACEHOLDER: 'Joesamanta@gmail.com',
     EMAIL_REQUIRED: 'Email is required',
     VALID_EMAIL: `Please enter a valid email`,

@@ -16,7 +16,7 @@ export const ColorSheet = {
   White: '#FFFFFF',
   Black: '#000000',
   PrimaryButton: '#363062',
-  OtpFocus: '#C3C1D0',
+  OtpFocus: '##D1D5DB',
   SecondaryInputBorder: '#0499D2',
   Border: '#E5E5E5',
   Error: '#FF0000',
@@ -26,4 +26,5 @@ export const ColorSheet = {
   IconColor: '#8683A1',
   subTitle: '#888888',
   BorderColor: '#2F2F2F',
+  BorderColor1: '#EFF0F6',
 };

@@ -65,7 +65,7 @@ const TextInputField = (props: TextInputProps) => {
         </View> */}
         <TextInput
           style={styles.textInput}
-          placeholderTextColor={ColorSheet.textDefaultColor}
+          placeholderTextColor={ColorSheet.Text2}
           onChangeText={onChangeText}
           value={value}
           onFocus={(e) => {
@@ -92,7 +92,7 @@ const TextInputField = (props: TextInputProps) => {
           >
             <Feather
               name={showPassword ? "eye" : "eye-off"}
-              size={20}
+              size={18}
               color={ColorSheet.textDefaultColor}
             />  
           </TouchableOpacity>

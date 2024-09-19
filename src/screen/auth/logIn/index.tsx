@@ -1,8 +1,7 @@
 import {
-  Image,
+  Alert,
   KeyboardAvoidingView,
   Platform,
-  ScrollView,
   StatusBar,
   Text,
   View,
@@ -13,11 +12,13 @@ import { Constants } from "./constants";
 import TextInputField from "@/component/input/TextInput";
 import TextButton from "@/component/button/Text_Button";
 import PrimaryButton from "@/component/button/PrimaryButton";
-import { ColorSheet } from "@/utilis/ColorSheet";
 import { AuthStackScreenProps } from "@/navigation/navigation_Models/auth_Models/authModels";
 import { isPassword, isString } from "@/utilis/validations";
 import { ErrorFlash } from "@/utilis/flashMessage";
 import { LinearGradient } from "expo-linear-gradient";
+import AuthButton from "@/component/button/authButton";
+import LeftLine from '@/assets/svg/Login/LeftLine.svg';
+import RightLine from '@/assets/svg/Login/LeftLine.svg';
 
 const LogIn = ({ navigation }: AuthStackScreenProps<"LogInScreen">) => {
   const [form, setForm] = useState({
@@ -68,7 +69,32 @@ const LogIn = ({ navigation }: AuthStackScreenProps<"LogInScreen">) => {
 
           {/* input field Container */}
           <View style={styles.input_field_container}>
-            {/* Email Input Field */}
+          {/* Auth Google */}
+          <AuthButton
+            title={Constants.GOOGLE}
+            type = {'google'}
+            onPress={() => {
+              Alert.alert('Feature Update')
+            }}
+          />
+
+          {/* Auth FaceBook */}
+          <AuthButton
+            title={Constants.FACEBOOK}
+            type = {'faceBook'}
+            onPress={() => {
+              Alert.alert('Feature Update')
+            }}
+          />
+
+          {/* OR */}
+          <View style={styles.or_container}>
+            <LeftLine/>
+            <Text style={styles.or_text}> {"OR"} </Text>
+            <RightLine/>
+          </View>
+
+          {/* Email Input Field */}
           <Text style={styles.inputTitle}> {"UserName"} </Text>
           <TextInputField
             placeholder={Constants.EMAIL_PLACEHOLDER}

@@ -28,10 +28,6 @@ export const styles = StyleSheet.create({
   },
   buttonContainer: {
     marginTop: hp(5),
-    paddingHorizontal: wp(10),
-    paddingVertical: hp(1.5),
-    borderRadius: hp(1),
-    backgroundColor: ColorSheet.PrimaryButton,
   },
   notReceiveBtn: {
     flexDirection: 'row',
@@ -45,7 +41,7 @@ export const styles = StyleSheet.create({
     fontWeight: "700",
     textAlign: 'center',
     textDecorationLine: 'underline',
-    color: ColorSheet.PrimaryButton,
+    color: ColorSheet.Secondary,
   },
   timerText: {
     width: hp(4),
@@ -53,7 +49,7 @@ export const styles = StyleSheet.create({
     textAlign: 'center',
     fontSize: Platform.OS == 'android' ? RFValue(16) : RFValue(15),
     fontWeight: "700",
-    color: ColorSheet.PrimaryButton,
+    color: ColorSheet.Secondary,
     // backgroundColor: 'red'
   },
 });

@@ -8,7 +8,7 @@ import {
   Text,
   View,
 } from "react-native";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Constants } from "./constants";
 import { styles } from "./styles";
 import TextInputField from "@/component/input/TextInput";
@@ -38,6 +38,10 @@ const Register = ({ navigation }: AuthStackScreenProps<"RegisterScreen">) => {
     label: "Sri Lanka", // Set default value
     value: "+94",
   });
+
+  useEffect(() => {
+    setCode({ label: "Sri Lanka", value: "+94" });
+  }, []);
 
   console.log('code.value', code.value);
   

@@ -28,11 +28,11 @@ export const styles = StyleSheet.create({
         borderEndWidth: 1,
         borderStartStartRadius: hp(1),
         borderEndStartRadius: hp(1),
-        backgroundColor: ColorSheet.OtpFocus,
+        backgroundColor: ColorSheet.PrimaryText,
     },
     placeholderStyle: {
         fontSize: RFValue(14),
-        color: ColorSheet.Text2,
+        color: ColorSheet.PrimaryText,
         marginLeft: wp(2),
         fontWeight: '500',
 
@@ -65,7 +65,7 @@ export const styles = StyleSheet.create({
         fontSize: RFValue(12),
         fontWeight: '500',
         paddingLeft: wp(2),
-        color: ColorSheet.Secondary,
+        color: ColorSheet.PrimaryText,
         // backgroundColor: 'yellow'
     },
 

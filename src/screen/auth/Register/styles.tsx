@@ -36,15 +36,11 @@ export const styles = StyleSheet.create({
   inputTitle: {
     marginTop: Platform.OS == 'android' ? hp(3) : hp(2),
     fontSize: RFValue(14),
-    fontWeight: "500",
-    color: ColorSheet.InputTitleText,
+    fontWeight: "600",
+    color: ColorSheet.Secondary,
   },
   buttonContainer: {
     marginTop: Platform.OS == 'android' ? hp(5) : hp(3),
-    paddingHorizontal: wp(10),
-    paddingVertical: hp(1.5),
-    borderRadius: hp(1),
-    backgroundColor: ColorSheet.PrimaryButton,
   },
   alreadyAccContainer: {
     marginTop: hp(2),
@@ -55,11 +51,11 @@ export const styles = StyleSheet.create({
   alreadyAccText:{
     fontSize: RFValue(13),
     fontWeight: "500",
-    color: ColorSheet.InputTitleText,
+    color: ColorSheet.Text2,
   },
   textButtonStyle: {
     fontSize: RFValue(13),
     textDecorationLine: 'underline',
-    color: ColorSheet.InputTitleText,
+    color: ColorSheet.Secondary,
   },
 });

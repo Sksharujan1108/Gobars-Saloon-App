@@ -10,16 +10,21 @@ import {
 
 export const styles = StyleSheet.create({
   button_root: {
+    width: '100%',
+    flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
-    borderRadius: 50,
-    backgroundColor: ColorSheet.PrimaryButton,
+    borderRadius: 5,
+    borderWidth: 1,
+    marginBottom: hp(2),
+    borderColor: ColorSheet.BorderColor1,
     paddingHorizontal: wp(2),
-    paddingVertical: hp(1),
+    paddingVertical: hp(2),
   },
   title_txt: {
-    fontSize: RFValue(16),
-    color: ColorSheet.White,
+    marginLeft: hp(1),
+    fontSize: RFValue(12),
+    color: ColorSheet.Secondary,
     fontWeight: '500',
   },
 });
