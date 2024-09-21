@@ -9,7 +9,7 @@ import Grading from '@/screen/auth/welcome';
 const Routes = () => {
   return (
     <NavigationContainer>
-      <AuthStack/>
+      <AppBottomTop/>
     </NavigationContainer>
   )
 }

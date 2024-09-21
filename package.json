@@ -18,6 +18,7 @@
     "@react-navigation/stack": "^6.4.1",
     "@reduxjs/toolkit": "^2.2.2",
     "@shopify/react-native-skia": "1.2.3",
+    "@tabler/icons-react": "^3.17.0",
     "@types/react": "~18.2.79",
     "@types/redux-logger": "^3.0.13",
     "axios": "^1.6.8",

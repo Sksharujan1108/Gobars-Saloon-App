@@ -41,11 +41,11 @@ const SearchInput = (props: SearchInputProps) => {
   return (
     <View style={styles.container}>
       {/* Search Icon */}
-      <AntDesign name="search1" size={24} color={ColorSheet.PrimaryButton} />
+      <AntDesign name="search1" size={24} color={ColorSheet.White} />
       {/* Input */}
       <TextInput
         style={styles.textInput}
-        placeholderTextColor={ColorSheet.textDefaultColor}
+        placeholderTextColor={ColorSheet.SearchPlaceHolderColor}
         onChangeText={onChangeText}
         value={value}
         onFocus={(e) => {

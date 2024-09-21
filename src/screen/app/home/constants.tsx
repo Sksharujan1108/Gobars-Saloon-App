@@ -1,5 +1,5 @@
 export const Constants = {
-    SEARCH: 'Search barber’s, haircut service',
+    SEARCH: 'Search...',
     BAR_SHOP: 'Nearest Babershop ',
     SEE_ALL: 'See All',
     BOOKING: 'Booking',

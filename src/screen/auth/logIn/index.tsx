@@ -52,8 +52,7 @@ const LogIn = ({ navigation }: AuthStackScreenProps<"LogInScreen">) => {
         end={{ x: 0.5, y: 1 }} // Adjusting bottom-right ending point
         locations={[0, 0.5, 1]} // Gradient stops to emphasize the center lightness
       >
-
-    <KeyboardAvoidingView
+      <KeyboardAvoidingView
       style={styles.root}
       behavior={Platform.OS == "ios" ? "padding" : "height"}
     >

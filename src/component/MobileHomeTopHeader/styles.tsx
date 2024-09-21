@@ -17,29 +17,31 @@ export const styles = StyleSheet.create({
     },
     locationNameContainer: {
         flexDirection: 'column',
-        // backgroundColor: 'pink',
         justifyContent: 'space-between',
     },
+    userName: {
+        marginTop: wp(1),
+        fontSize: Platform.OS == 'android' ? RFValue(14) : RFValue(15),
+        fontWeight: '600',
+        color: ColorSheet.White
+    },
     iconContainer: {
+        paddingTop: hp(1),
         flexDirection: 'row',
         alignItems: 'center',
         // backgroundColor: 'gray'
     },
     location: {
-        fontSize: RFValue(12),
+        fontSize: Platform.OS == 'android' ? RFValue(14) : RFValue(14),
         fontWeight: '600',
-        color: ColorSheet.textDefaultColor
+        color: ColorSheet.White
     },
-    userName: {
-        marginTop: wp(1),
-        fontSize: RFValue(14),
-        fontWeight: '600',
-        color: ColorSheet.PrimaryButton
-    },
-    imgStyle: {
-        width: wp(13),
-        height: wp(13),
-        borderRadius: wp(6.5),
-        resizeMode: 'contain',
+    notification_container: {
+        width: hp(5),
+        height: hp(5),
+        borderRadius: hp(5) / 2,
+        alignItems: 'center',
+        justifyContent: 'center',
+        backgroundColor: ColorSheet.NotificationBg,
     },
 });

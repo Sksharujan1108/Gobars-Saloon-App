@@ -27,4 +27,7 @@ export const ColorSheet = {
   subTitle: '#888888',
   BorderColor: '#2F2F2F',
   BorderColor1: '#EFF0F6',
+  NotificationBg: '#272835',
+  SearchPlaceHolderColor: '#666D80',
+  DotColor: '#0D0D1252'
 };
