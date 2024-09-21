@@ -1,6 +1,9 @@
 export const Constants = {
-    TITLE: 'Welcome back 👋',
-    SUB_TITLE: 'Please enter your login information below to access your account',
+    TITLE: 'Get Started now 👋',
+    SUB_TITLE: 'Create an account or log in to explore our app',
+
+    GOOGLE: 'Sign in with Google',
+    FACEBOOK: 'Sign in with Facebook',
 
     EMAIL_PLACEHOLDER: 'Joesamanta@gmail.com',
     EMAIL_REQUIRED: 'Email is required',
@@ -16,5 +19,5 @@ export const Constants = {
     FORGOT_PASSWORD_TITLE: 'Forgot Password?',
 
     REGISTER_TITLE: 'Don’t have an account?',
-    REGISTER_BUTTON_TITLE: 'Register'
+    REGISTER_BUTTON_TITLE: 'Sign Up'
 }

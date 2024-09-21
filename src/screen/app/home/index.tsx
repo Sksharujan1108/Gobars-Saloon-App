@@ -1,32 +1,47 @@
 import { Text, View, ScrollView, TouchableOpacity } from "react-native";
-import React, { useState } from "react";
-import MobileTopHeader from "@/component/MobileTopHeader";
+import React, { useRef, useState } from "react";
 import { styles } from "./styles";
-import HomeBanner from "@/component/home/HomeBanner";
 import SearchInput from "@/component/input/SearchInput";
-import Setting from "@/assets/svg/home/settingHome.svg";
+import Filter from "@/assets/svg/home/Filter.svg";
 import { Constants } from "./constants";
 import HomeCommonListData from "@/component/home/HomeCommonListData";
-import MostRecommendedBanner from "@/component/home/MostRecommended";
-import SeeAllButton from "@/component/button/SeeAllBtn";
-import FindLocation from "@/component/home/FindLocation";
+import HomeFilterPopUp from "./Dialog/FliterPopUp";
+import { BottomSheetModal } from "@gorhom/bottom-sheet";
+import MobileHomeTopHeader from "@/component/MobileHomeTopHeader";
+import HomeOfferCardSlider from "@/component/home/HomeOfferCardSlider";
+import HomeListCategory from "@/component/home/HomeListCategory";
 
 const Home = () => {
   const [search, setSearch] = useState("");
 
+  const [selectedCategory, setSelectedCategory] = useState<any>('New');
+
+  // ref
+  const bottomSheetModalRef = useRef<BottomSheetModal>(null);
+
   // Function to filter nearest barber shop list
-  const filteredNearestBarberShops = nearestBarShopList.filter((item) =>
-    item.barName.toLowerCase().includes(search.toLowerCase())
-  );
+  // const filteredNearestBarberShops = nearestBarShopList.filter((item) =>
+  //   item.barName.toLowerCase().includes(search.toLowerCase())
+  // );
 
   // Function to filter most recommended list
-  const filteredMostRecommended = mostRecommended.filter((item) =>
-    item.barName.toLowerCase().includes(search.toLowerCase())
-  );
+  // const filteredMostRecommended = mostRecommended.filter((item) =>
+  //   item.barName.toLowerCase().includes(search.toLowerCase())
+  // );
+
+  // Handle category selection efficiently with useCallback
+  const handleCategoryPress = (category: string) => {
+    setSelectedCategory(category);
+  };
 
   const [seeAll1, setSeeAll1] = useState(false);
 
   const [seeAll2, setSeeAll2] = useState(false);
+
+  // handleFilter
+  const handleFilter = () => {
+    bottomSheetModalRef.current?.present();
+  }
 
   return (
     <View style={styles.rootContainer}>
@@ -36,15 +51,14 @@ const Home = () => {
       >
         {/* MainContainer */}
         <View style={styles.MainContainer}>
-          {/* Header */}
-          <MobileTopHeader />
-          {/* Banner */}
-          <HomeBanner
-            onPress={() => {
-              console.log("Booking Now");
-            }}
-          />
-          {/* Search Component */}
+          <View style = {styles.flex_container_1}>
+            {/* Header */}
+            <MobileHomeTopHeader
+              name = {'Sk Sarujan'}
+              location = {'Kathmandu, Nepal'}
+            />
+
+            {/* Search Component */}
           <View style={styles.searchContainer}>
             {/* Search */}
             <SearchInput
@@ -66,136 +80,82 @@ const Home = () => {
                 console.log("Filter");
               }}
             >
-              <Setting />
+              <Filter />
             </TouchableOpacity>
           </View>
-
-          {/* Bar List Nearest Barber Shop*/}
-          <NearestBarberShop />
-
-          {/* See All Button 1*/}
-          <SeeAllButton
-            onPress={() => {
-              setSeeAll1(!seeAll1);
-            }}
-          />
-
-          {/* Most recommended */}
-          {seeAll1 && (
-            <>
-              <MostRecommended />
-
-              {/* See All 2 */}
-              <SeeAllButton
-                onPress={() => {
-                  setSeeAll2(!seeAll2);
-                }}
-              />
-            </>
-          )}
-
-          {/* See All 2 */}
-          {seeAll2 && (
-            <View style={styles.mapContainer}>
-              {/*  */}
-              <Text style={styles.listHeading}>{Constants.FIND_BAR_BER}</Text>
-              <FindLocation />
+          </View>
+          
+          <View style = {styles.flex_container_2}>
+            {/* Offer Card */}
+            <View style = {styles.offerCard_container}>
+               <HomeOfferCardSlider/>
             </View>
-          )}
+
+            {/* Category */}
+            <View style = {styles.category_container}>
+              <HomeListCategory 
+                dataList = {categories}
+                onPress={handleCategoryPress}
+                isActive={(category) => category === selectedCategory}
+              />
+            </View>
+
+            {/* List */}
+            <View style = {styles.list_of_data_container}>
+              <HomeCommonListData
+                data={nearestBarShopList}
+              />
+            </View>
+          </View>
         </View>
       </ScrollView>
-    </View>
-  );
-};
 
-// Nearest Barber Shop
-const NearestBarberShop = () => {
-  return (
-    <View style={styles.barCarContainer}>
-      {/* Nearest Babershop  */}
-      <Text style={styles.listHeading}>{Constants.BAR_SHOP}</Text>
-      <HomeCommonListData data={nearestBarShopList} />
-    </View>
-  );
-};
+      <HomeFilterPopUp
+        bottomSheetModalRef = {bottomSheetModalRef}
+      />
 
-// Most recommended
-const MostRecommended = () => {
-  return (
-    <View style={styles.mostRecommendedContainer}>
-      <Text style={styles.listHeading}>{Constants.MUST_RECOMMENDED}</Text>
-      {/* Most Recommended Banner */}
-      <MostRecommendedBanner data={mostRecommendedBanner} />
-
-      {/* Most recommended List Of Data */}
-      <HomeCommonListData data={mostRecommended} />
     </View>
   );
 };
 
 export default Home;
 
+const categories = [
+  { 
+    name: 'Haircuts', 
+    image: require('@/assets/image/Home/category/hairCut.png') 
+  },
+  { 
+    name: 'Coloring', 
+    image: require('@/assets/image/Home/category/hairCut.png') 
+  },
+  { 
+    name: 'Shaving', 
+    image: require('@/assets/image/Home/category/hairCut.png') 
+  },
+  { 
+    name: 'More', 
+    image: require('@/assets/image/Home/category/hairCut.png')  
+  },
+];
+
 const nearestBarShopList = [
   {
-    image: require("@/assets/image/Home/BarImg/HomeBar_1.png"),
-    barName: "Alana Barbershop - Haircut massage & Spa ",
-    location: "Banguntapan (5 km)",
+    image: require("@/assets/image/Home/homeBar_Pic.png"),
+    barName: "Captain Barbershop",
+    location: "123 Main Street, Anytown, USA",
     points: 4.5,
   },
   {
-    image: require("@/assets/image/Home/BarImg/HomeBar_2.png"),
-    barName: "Hercha Barbershop - Haircut & Styling",
-    location: "Jalan Kaliurang (8 km)",
+    image: require("@/assets/image/Home/homeBar_Pic.png"),
+    barName: "Hercha Barbershop",
+    location: "123 Main Street, Anytown, USA",
     points: 5.0,
   },
   {
-    image: require("@/assets/image/Home/BarImg/HomeBar_3.png"),
-    barName: "Barberking - Haircut styling  & massage",
-    location: "Jogja Expo Centre (12 km)",
-    points: 4.7,
-  },
-];
-
-// Most Recommended Banner
-const mostRecommendedBanner = [
-  {
-    image: require("@/assets/image/Home/BarImg/HomeBar_2.png"),
-    barName: "Master piece Barbershop - Haircut styling",
-    location: "Banguntapan (5 km)",
-    points: 4.5,
-  },
-  {
-    image: require("@/assets/image/Home/BarImg/HomeBar_1.png"),
-    barName: "Alana Barbershop - Haircut massage & Spa ",
-    location: "Banguntapan (5 km)",
-    points: 4.5,
-  },
-  {
-    image: require("@/assets/image/Home/MostRecommended/recommended3.png"),
-    barName: "Barberman - Haircut styling & massage",
-    location: "J-Walk Centre  (17 km)",
-    points: 4.7,
-  },
-];
-
-// Most Recommended Data List
-const mostRecommended = [
-  {
-    image: require("@/assets/image/Home/MostRecommended/recommended1.png"),
-    barName: "Varcity Barbershop Jogja ex The Varcher ",
-    location: "Condongcatur (10 km)",
-    points: 4.5,
-  },
-  {
-    image: require("@/assets/image/Home/MostRecommended/recommended2.png"),
-    barName: "Twinsky Monkey Barber & Men Stuff",
-    location: "Jl Taman Siswa (8 km)",
-    points: 5.0,
-  },
-  {
-    image: require("@/assets/image/Home/MostRecommended/recommended3.png"),
-    barName: "Barberman - Haircut styling & massage",
-    location: "J-Walk Centre  (17 km)",
+    image: require("@/assets/image/Home/homeBar_Pic.png"),
+    barName: "Barberking - Haircut",
+    location: "123 Main Street, Anytown, USA",
     points: 4.7,
   },
 ];

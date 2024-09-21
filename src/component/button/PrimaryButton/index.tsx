@@ -1,19 +1,22 @@
-import { StyleSheet, Text, TouchableOpacity, View } from 'react-native'
+import { StyleProp, StyleSheet, Text, TextStyle, TouchableOpacity, View, ViewStyle } from 'react-native'
 import React from 'react'
 import { styles } from './styles';
+import { TextProps } from 'react-native-svg';
 
-interface PrimaryButton {
+interface PrimaryButtonProps {
     title: string;
     onPress: () => void;
     disabled?: boolean;
-    style?: any;
+    style?: StyleProp<ViewStyle>;
+    textStyle?: StyleProp<TextStyle>;
 }
 
-const PrimaryButton = (props: PrimaryButton) => {
+const PrimaryButton = (props: PrimaryButtonProps) => {
     const {
         style,
         title,
         onPress,
+        textStyle,
     } = props;
 
   return (
@@ -22,7 +25,7 @@ const PrimaryButton = (props: PrimaryButton) => {
       onPress = {onPress}
       activeOpacity = {0.5}
     >
-      <Text style = {styles.title_txt}> {title} </Text>
+      <Text style = {[styles.title_txt, textStyle]}> {title} </Text>
     </TouchableOpacity>
   )
 }

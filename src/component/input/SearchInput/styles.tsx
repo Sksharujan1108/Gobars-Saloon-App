@@ -10,19 +10,20 @@ import {
 
 export const styles = StyleSheet.create({
     container: {
-        width: wp(72),
+        width: wp(73),
+        height: hp(6),
         flexDirection: 'row',
         alignItems: 'center',
-        padding: hp(1),
-        borderRadius: hp(1),
-        backgroundColor: ColorSheet.OtpFocus,
+        padding: hp(1.5),
+        borderRadius: 10,
+        backgroundColor: ColorSheet.NotificationBg,
     },
     textInput: {
         width: '75%',
-        height: hp(3),
-        marginLeft: hp(1),
+        height: hp(4),
+        marginLeft: hp(1.5),
         marginRight: hp(1),
-        fontSize: RFValue(12),
+        fontSize: RFValue(14),
         // backgroundColor: 'red'
     },
     icon: {},

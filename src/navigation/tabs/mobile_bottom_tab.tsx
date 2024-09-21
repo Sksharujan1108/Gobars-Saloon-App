@@ -24,8 +24,8 @@ const AppBottomTop = () => {
       style = {styles.root}
     >
       <StatusBar
-        barStyle = 'dark-content'
-        backgroundColor={"transparent"}
+        barStyle = 'light-content'
+        backgroundColor={'translucent'}
         translucent={true}
       />
 
@@ -153,12 +153,12 @@ const AppBottomTop = () => {
 const styles = StyleSheet.create({
   root: {
     flex: 1,
-    //  backgroundColor: ColorSheet.AppPrimaryBackground,
+     backgroundColor: ColorSheet.Secondary,
   },
   iconView: {
     alignItems: 'center',
     justifyContent: 'space-between',
-    marginTop: Platform.OS == 'ios' ? hp(2.5) : hp(0),
+    marginTop: Platform.OS == 'ios' ? hp(0) : hp(0),
     // backgroundColor: 'red'
   },
   labelText: {

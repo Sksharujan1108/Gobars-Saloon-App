@@ -4,4 +4,6 @@ export const Constants = {
 
     SEND_BUTTON_TITLE: 'Send',
     NOT_RECEIVE: 'Have not receive code?',
+
+    ENTER_VALID_OTP: 'Enter valid OTP',
 }

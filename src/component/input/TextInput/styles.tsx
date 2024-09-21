@@ -26,8 +26,7 @@ export const styles = StyleSheet.create({
     iconContainer: {},
     textInput: {
         flex: 1,
-        fontSize: RFValue(12),
-        paddingVertical: hp(1.5),
+        fontSize: Platform.OS == 'ios' ? RFValue(12) : RFValue(12),
         fontWeight: '500',
         color: ColorSheet.Secondary,
     },

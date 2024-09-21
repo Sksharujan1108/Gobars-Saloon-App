@@ -1,6 +1,7 @@
 import { ColorSheet } from "@/utilis/ColorSheet";
 import { Dimensions, Platform, StyleSheet } from "react-native";
 import { RFValue } from "react-native-responsive-fontsize";
+import { NavigationContainer } from '@react-navigation/native';
 import {
   heightPercentageToDP as hp,
   widthPercentageToDP as wp,
@@ -9,7 +10,6 @@ import {
 export const styles = StyleSheet.create({
   rootContainer: {
     flex: 1,
-    padding: hp(2),
     marginTop: Platform.OS == 'android' ? hp(6) : 0,
     // backgroundColor: 'red'
   },
@@ -18,42 +18,49 @@ export const styles = StyleSheet.create({
     paddingBottom: hp(2)
   },
   MainContainer: {
-    width: '100%',
-    alignSelf: 'center',
+    flex: 1,
     // backgroundColor: 'pink'
+  },
+  flex_container_1: {
+    flex: 0.05,
+    padding: hp(2),
+    backgroundColor: ColorSheet.Secondary,
   },
   searchContainer: {
     width: '100%',
     marginTop: hp(2),
     flexDirection: 'row',
     justifyContent: 'space-between',
+    // backgroundColor: 'pink'
   },
   fliterBtn: {
-    width: wp(13),
-    height: hp(6),
-    borderRadius: hp(1),
-    backgroundColor: ColorSheet.PrimaryButton,
+    flex: 0.8,
+    borderRadius: 10,
+    backgroundColor: ColorSheet.NotificationBg,
     alignItems: 'center',
     justifyContent: 'center',
   },
-  barCarContainer: {
-    width: '100%',
+  flex_container_2: {
+    flex: 0.95,
+    // backgroundColor: 'green',
+  },
+  offerCard_container: {
+    width: hp(100),
+    height: hp(20),
     marginTop: hp(2),
     // backgroundColor: 'pink'
   },
-  listHeading: {
-    fontSize: Platform.OS == 'ios' ? RFValue(14) : RFValue(16),
-    fontWeight: '600',
-    color: ColorSheet.InputTitleText,
-    marginBottom: hp(1),
-  },
-
-  mostRecommendedContainer: {
+  category_container: {
     width: '100%',
-    marginTop: hp(3),
+    paddingHorizontal: hp(1),
+    marginTop: hp(2),
     // backgroundColor: 'pink'
   },
-
+  list_of_data_container: {
+    width: '100%',
+    paddingHorizontal: hp(3),
+    marginTop: hp(1),
+  },
   // 
   mapContainer: {
     width: '100%',

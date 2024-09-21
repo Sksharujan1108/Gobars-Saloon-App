@@ -33,10 +33,6 @@ export const styles = StyleSheet.create({
   },
   buttonContainer: {
     marginTop: hp(3),
-    paddingHorizontal: wp(10),
-    paddingVertical: hp(1.5),
-    borderRadius: hp(1),
-    backgroundColor: ColorSheet.PrimaryButton,
   },
   textButtonStyle: {
     marginTop: hp(3),

@@ -18,6 +18,6 @@ export const styles = StyleSheet.create({
     paddingLeft: hp(1),
     fontSize: RFValue(22),
     fontWeight: "bold",
-    color: ColorSheet.PrimaryButton,
+    color: ColorSheet.Secondary,
   },
 });
