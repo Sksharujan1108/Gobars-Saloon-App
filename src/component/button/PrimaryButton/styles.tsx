@@ -10,12 +10,14 @@ import {
 
 export const styles = StyleSheet.create({
   button_root: {
+    flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
     backgroundColor: ColorSheet.Secondary,
     paddingHorizontal: wp(2),
     paddingVertical: hp(2),
     borderRadius: hp(1),
+    gap: 5,
   },
   title_txt: {
     fontSize: RFValue(16),

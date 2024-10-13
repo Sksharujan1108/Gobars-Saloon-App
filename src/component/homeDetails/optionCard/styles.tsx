@@ -9,15 +9,24 @@ import {
 // const { width: screenWidth, height: screenHeight } = Dimensions.get('window');
 
 export const styles = StyleSheet.create({
-    container: {
-        padding: hp(2),
-        flexDirection: 'row',
+    button_container: {
+        width: wp(20),
         alignItems: 'center',
+        justifyContent: 'center',
+        // backgroundColor: 'red'
+    },
+    image_view_container: {
+        width: wp(18),
+        height: hp(8),
+        borderRadius: 10,
+        alignItems: 'center',
+        justifyContent: 'center',
+        backgroundColor: ColorSheet.BackGround,
     },
     title_text: {
-        marginLeft: hp(3),
-        fontSize: RFValue(14),
-        color: ColorSheet.Secondary,
+        fontSize: RFValue(13),
         fontWeight: '600',
+        color: ColorSheet.Text2,
+        marginTop: hp(1),
     },
 });

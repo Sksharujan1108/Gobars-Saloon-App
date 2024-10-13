@@ -6,25 +6,16 @@ import {
   widthPercentageToDP as wp,
 } from "react-native-responsive-screen";
 
+// const { width: screenWidth, height: screenHeight } = Dimensions.get('window');
+
 export const styles = StyleSheet.create({
-  root: {
-    flex: 1,
-    backgroundColor: ColorSheet.White,
-  },
-  scrollView: {
-    flexGrow: 1,
-    paddingBottom: hp(3),
-  },
-  main_container: {
+  container: {
     width: "100%",
-    paddingHorizontal: hp(2),
-    paddingBottom: hp(2),
-    // backgroundColor: 'pink'
   },
-  common_heading_text: {
+  header_Text: {
     fontSize: RFValue(16),
-    fontWeight: "600",
+    fontWeight: '600',
     color: ColorSheet.Secondary,
-    marginTop: hp(3),
+    marginBottom: hp(2),
   },
 });

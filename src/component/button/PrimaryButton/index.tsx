@@ -9,6 +9,7 @@ interface PrimaryButtonProps {
     disabled?: boolean;
     style?: StyleProp<ViewStyle>;
     textStyle?: StyleProp<TextStyle>;
+    child?: React.ReactNode; // Add this if you want to include a child component inside the button.
 }
 
 const PrimaryButton = (props: PrimaryButtonProps) => {
@@ -17,6 +18,7 @@ const PrimaryButton = (props: PrimaryButtonProps) => {
         title,
         onPress,
         textStyle,
+        child,
     } = props;
 
   return (
@@ -26,6 +28,9 @@ const PrimaryButton = (props: PrimaryButtonProps) => {
       activeOpacity = {0.5}
     >
       <Text style = {[styles.title_txt, textStyle]}> {title} </Text>
+      {child && (
+        child // Add this if you want to include a child component inside the button.
+      )}
     </TouchableOpacity>
   )
 }

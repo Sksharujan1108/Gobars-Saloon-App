@@ -1,4 +1,11 @@
-import { Text, View, ScrollView, TouchableOpacity } from "react-native";
+import {
+  Text,
+  View,
+  ScrollView,
+  TouchableOpacity,
+  StatusBar,
+  SafeAreaView,
+} from "react-native";
 import React, { useRef, useState } from "react";
 import { styles } from "./styles";
 import SearchInput from "@/component/input/SearchInput";
@@ -10,11 +17,12 @@ import { BottomSheetModal } from "@gorhom/bottom-sheet";
 import MobileHomeTopHeader from "@/component/MobileHomeTopHeader";
 import HomeOfferCardSlider from "@/component/home/HomeOfferCardSlider";
 import HomeListCategory from "@/component/home/HomeListCategory";
+import { ColorSheet } from "@/utilis/ColorSheet";
 
 const Home = () => {
   const [search, setSearch] = useState("");
 
-  const [selectedCategory, setSelectedCategory] = useState<any>('New');
+  const [selectedCategory, setSelectedCategory] = useState<any>("New");
 
   // ref
   const bottomSheetModalRef = useRef<BottomSheetModal>(null);
@@ -41,79 +49,81 @@ const Home = () => {
   // handleFilter
   const handleFilter = () => {
     bottomSheetModalRef.current?.present();
-  }
+  };
 
   return (
     <View style={styles.rootContainer}>
-      <ScrollView
-        contentContainerStyle={styles.scrollView}
-        showsVerticalScrollIndicator={false}
-      >
+      <SafeAreaView style={{ flex: 1}}>
+        {/* Status Bar */}
+        <StatusBar
+          barStyle="light-content"
+          // backgroundColor={'transparent'} 
+          // translucent={true} // Set this to false for a solid background color
+        />
+
         {/* MainContainer */}
         <View style={styles.MainContainer}>
-          <View style = {styles.flex_container_1}>
-            {/* Header */}
-            <MobileHomeTopHeader
-              name = {'Sk Sarujan'}
-              location = {'Kathmandu, Nepal'}
-            />
-
-            {/* Search Component */}
-          <View style={styles.searchContainer}>
-            {/* Search */}
-            <SearchInput
-              placeholder={Constants.SEARCH}
-              value={search}
-              onChangeText={(text: any) => {
-                setSearch(text);
-              }}
-              onPressClose={() => {
-                setSearch("");
-              }}
-            />
-
-            {/* Filter */}
-            <TouchableOpacity
-              style={styles.fliterBtn}
-              activeOpacity={0.5}
-              onPress={() => {
-                console.log("Filter");
-              }}
-            >
-              <Filter />
-            </TouchableOpacity>
-          </View>
-          </View>
-          
-          <View style = {styles.flex_container_2}>
-            {/* Offer Card */}
-            <View style = {styles.offerCard_container}>
-               <HomeOfferCardSlider/>
-            </View>
-
-            {/* Category */}
-            <View style = {styles.category_container}>
-              <HomeListCategory 
-                dataList = {categories}
-                onPress={handleCategoryPress}
-                isActive={(category) => category === selectedCategory}
+          <ScrollView
+            contentContainerStyle={styles.scrollView}
+            showsVerticalScrollIndicator={false}
+          >
+            <View style={styles.flex_container_1}>
+              {/* Header */}
+              <MobileHomeTopHeader
+                name={"Sk Sarujan"}
+                location={"Kathmandu, Nepal"}
               />
+
+              {/* Search Component */}
+              <View style={styles.searchContainer}>
+                {/* Search */}
+                <SearchInput
+                  placeholder={Constants.SEARCH}
+                  value={search}
+                  onChangeText={(text: any) => {
+                    setSearch(text);
+                  }}
+                  onPressClose={() => {
+                    setSearch("");
+                  }}
+                />
+
+                {/* Filter */}
+                <TouchableOpacity
+                  style={styles.fliterBtn}
+                  activeOpacity={0.5}
+                  onPress={handleFilter}
+                >
+                  <Filter />
+                </TouchableOpacity>
+              </View>
             </View>
 
-            {/* List */}
-            <View style = {styles.list_of_data_container}>
-              <HomeCommonListData
-                data={nearestBarShopList}
-              />
+            <View style={styles.flex_container_2}>
+              {/* Offer Card */}
+              <View style={styles.offerCard_container}>
+                <HomeOfferCardSlider />
+              </View>
+
+              {/* Category */}
+              <View style={styles.category_container}>
+                <HomeListCategory
+                  dataList={categories}
+                  onPress={handleCategoryPress}
+                  isActive={(category) => category === selectedCategory}
+                />
+              </View>
+
+              {/* List */}
+              <View style={styles.list_of_data_container}>
+                <HomeCommonListData data={nearestBarShopList} />
+              </View>
             </View>
-          </View>
+          </ScrollView>
         </View>
-      </ScrollView>
 
-      <HomeFilterPopUp
-        bottomSheetModalRef = {bottomSheetModalRef}
-      />
-
+        <HomeFilterPopUp bottomSheetModalRef={bottomSheetModalRef} />
+      </SafeAreaView>
     </View>
   );
 };
@@ -121,21 +131,21 @@ const Home = () => {
 export default Home;
 
 const categories = [
-  { 
-    name: 'Haircuts', 
-    image: require('@/assets/image/Home/category/hairCut.png') 
+  {
+    name: "Haircuts",
+    image: require("@/assets/image/Home/category/hairCut.png"),
   },
-  { 
-    name: 'Coloring', 
-    image: require('@/assets/image/Home/category/hairCut.png') 
+  {
+    name: "Coloring",
+    image: require("@/assets/image/Home/category/hairCut.png"),
   },
-  { 
-    name: 'Shaving', 
-    image: require('@/assets/image/Home/category/hairCut.png') 
+  {
+    name: "Shaving",
+    image: require("@/assets/image/Home/category/hairCut.png"),
   },
-  { 
-    name: 'More', 
-    image: require('@/assets/image/Home/category/hairCut.png')  
+  {
+    name: "More",
+    image: require("@/assets/image/Home/category/hairCut.png"),
   },
 ];
 
