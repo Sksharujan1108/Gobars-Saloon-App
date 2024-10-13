@@ -23,11 +23,6 @@ const AppBottomTop = () => {
     <SafeAreaView
       style = {styles.root}
     >
-      <StatusBar
-        barStyle = 'light-content'
-        backgroundColor={'translucent'}
-        translucent={true}
-      />
 
       <Tab.Navigator
         screenOptions={
@@ -153,7 +148,7 @@ const AppBottomTop = () => {
 const styles = StyleSheet.create({
   root: {
     flex: 1,
-     backgroundColor: ColorSheet.Secondary,
+    //  backgroundColor: ColorSheet.Secondary,
   },
   iconView: {
     alignItems: 'center',

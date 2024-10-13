@@ -1,14 +1,40 @@
-import { StyleSheet, Text, View } from 'react-native'
+import { ScrollView, StatusBar, StyleSheet, Text, View } from 'react-native'
 import React from 'react'
+import { styles } from './styles';
+import BackTitleHeader from '@/component/backTitleHeader';
+import MobileCustomCalender from '@/component/customeCalender';
 
-const Book = () => {
+const BookAppointment = () => {
   return (
-    <View>
-      <Text>Setting</Text>
+    <View style = {styles.root}>
+      {/* Status Bar */}
+      <StatusBar
+        barStyle = 'dark-content'
+        backgroundColor={'translucent'}
+        translucent={true}
+      />
+
+      {/* Back Title */}
+      <BackTitleHeader
+        title = {'Book Appointment'}
+        onPress={() => {}}
+      />
+
+      {/* Scroll View */}
+      <ScrollView
+        contentContainerStyle = {styles.scrollView}
+      >
+        {/* Main Container */}
+        <View style = {styles.main_container}>
+          {/* Choose Date */}
+          <Text style = {styles.choose_date_text}>{'Choose Date'}</Text>
+          {/* calender */}
+          <MobileCustomCalender/>
+        </View>
+
+      </ScrollView>
     </View>
   )
 }
 
-export default Book;
-
-const styles = StyleSheet.create({})
+export default BookAppointment;

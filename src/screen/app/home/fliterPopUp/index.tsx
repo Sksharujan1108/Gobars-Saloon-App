@@ -12,12 +12,12 @@ import {
   BottomSheetBackdropProps,
   BottomSheetBackdrop,
 } from "@gorhom/bottom-sheet";
-import { styles } from "./styles";
-import { Constants } from "./constants";
 import AntDesign from "@expo/vector-icons/AntDesign";
 import FeaturedIcon from "@/assets/svg/home/FeaturedIcon.svg";
 import CloseSquare from "@/assets/svg/home/CloseSquare.svg";
 import PrimaryButton from "@/component/button/PrimaryButton";
+import { styles } from "./styles";
+import { Constants } from "./constants";
 
 interface HomeFilterPopUpProps {
   bottomSheetModalRef: React.RefObject<BottomSheetModal>;

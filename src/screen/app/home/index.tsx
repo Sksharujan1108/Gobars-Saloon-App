@@ -5,7 +5,7 @@ import SearchInput from "@/component/input/SearchInput";
 import Filter from "@/assets/svg/home/Filter.svg";
 import { Constants } from "./constants";
 import HomeCommonListData from "@/component/home/HomeCommonListData";
-import HomeFilterPopUp from "./Dialog/FliterPopUp";
+import HomeFilterPopUp from "./fliterPopUp";
 import { BottomSheetModal } from "@gorhom/bottom-sheet";
 import MobileHomeTopHeader from "@/component/MobileHomeTopHeader";
 import HomeOfferCardSlider from "@/component/home/HomeOfferCardSlider";
