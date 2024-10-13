@@ -16,7 +16,7 @@ export default function App() {
         <FlashMessage
           position='top'
           floating
-          statusBarHeight={Platform.OS == 'ios' ? hp(5) : hp(7)}
+          statusBarHeight={Platform.OS == 'ios' ? hp(4) : hp(5)}
         />
       </BottomSheetModalProvider>
     </GestureHandlerRootView>

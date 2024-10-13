@@ -24,8 +24,8 @@ export const styles = StyleSheet.create({
         backgroundColor: ColorSheet.BackGround,
     },
     title_text: {
-        fontSize: RFValue(13),
-        fontWeight: '600',
+        fontSize: Platform.OS == 'android' ? RFValue(14) : RFValue(12),
+        fontWeight: '400',
         color: ColorSheet.Text2,
         marginTop: hp(1),
     },

@@ -1,5 +1,5 @@
 import { ColorSheet } from "@/utilis/ColorSheet";
-import { StyleSheet } from "react-native";
+import { Platform, StyleSheet } from "react-native";
 import { RFValue } from "react-native-responsive-fontsize";
 import {
   heightPercentageToDP as hp,
@@ -58,14 +58,14 @@ export const styles = StyleSheet.create({
     borderRadius: hp(2),
   },
   title_text: {
-    fontSize: RFValue(12),
+    fontSize: Platform.OS == 'android' ? RFValue(14) : RFValue(12),
     fontWeight: "500",
     color: ColorSheet.Secondary,
     marginTop: hp(1),
   },
   price_text: {
     marginTop: hp(0.5),
-    fontSize: RFValue(14),
+    fontSize: Platform.OS == 'android' ? RFValue(14) : RFValue(14),
     fontWeight: "500",
     color: ColorSheet.Text2,
   },

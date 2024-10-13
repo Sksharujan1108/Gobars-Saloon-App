@@ -13,29 +13,28 @@ export const styles = StyleSheet.create({
   },
   scrollView_container: {
     flexGrow: 1,
-    paddingBottom: hp(2)
+    paddingBottom: Platform.OS == 'android' ? hp(10) : hp(5)
   },
-  image_container: {
-    flex: 0.5,
+  main_container: {
+    flex: 1,
+    height: hp(100),
   },
   image: {
-    position: 'absolute',
-    zIndex: -1,
     width: '100%',
     height: hp(42),
     resizeMode: 'cover',
     // backgroundColor: 'yellow',
   },
   details_container: {
-    flex: 0.7,
-  },
-  white_container: {
+    position: 'absolute',
+    zIndex: 1,
+    bottom: 0,
     width: '100%',
-    height: hp(70),
+    height: hp(63),
     padding: hp(3),
-    borderStartStartRadius: hp(3),
-    borderStartEndRadius: hp(3),
-    backgroundColor: ColorSheet.White,
+    borderTopLeftRadius: hp(3),
+    borderTopRightRadius: hp(3),
+    backgroundColor : ColorSheet.White,
   },
   header_row_container: {
     flexDirection: 'row',
@@ -45,8 +44,8 @@ export const styles = StyleSheet.create({
     // backgroundColor: 'yellow',
   },
   header_text: {
-    fontSize: RFValue(16),
-    fontWeight: '700',
+    fontSize: Platform.OS == 'android' ? RFValue(19) : RFValue(14),
+    fontWeight: '600',
     color: ColorSheet.Secondary,
   },
   open_container: {
@@ -58,8 +57,8 @@ export const styles = StyleSheet.create({
     backgroundColor: ColorSheet.BackGround,
   },
   open: {
-    fontSize: RFValue(12),
-    fontWeight: '700',
+    fontSize: Platform.OS == 'android' ? RFValue(14) : RFValue(11),
+    fontWeight: '500',
     color: ColorSheet.Text2,
   },
   row_container : {
@@ -69,13 +68,13 @@ export const styles = StyleSheet.create({
     gap: 5,
   },
   location_text: {
-    fontSize: RFValue(12),
-    fontWeight: '700',
+    fontSize: Platform.OS == 'android' ? RFValue(14) : RFValue(11),
+    fontWeight: '500',
     color: ColorSheet.Text2,
   },
   review_text: {
-    fontSize: RFValue(12),
-    fontWeight: '700',
+    fontSize: Platform.OS == 'android' ? RFValue(14) : RFValue(11),
+    fontWeight: '500',
     color: ColorSheet.Text2,
   },
 
@@ -96,17 +95,17 @@ export const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent:'space-between',
     alignItems: 'center',
-    marginBottom: hp(1),
+    marginBottom: hp(2),
     // backgroundColor: 'blue',
   },
   specialist_text: {
-    fontSize: RFValue(15),
-    fontWeight: '700',
+    fontSize: Platform.OS == 'android' ? RFValue(18) : RFValue(14),
+    fontWeight: '600',
     color: ColorSheet.Secondary,
   },
   see_all_text: {
-    fontSize: RFValue(14),
-    fontWeight: '700',
+    fontSize: Platform.OS == 'android' ? RFValue(16) : RFValue(13),
+    fontWeight: '600',
     color: ColorSheet.Secondary,
   },
 });

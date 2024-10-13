@@ -1,6 +1,11 @@
 import { StyleSheet, Text, View } from "react-native";
 import React from "react";
 import { styles } from "./styles";
+import HorizontalLine from '@/assets/svg/book/Sparator.svg'
+import {
+  heightPercentageToDP as hp,
+  widthPercentageToDP as wp,
+} from "react-native-responsive-screen";
 
 interface MobileCustomPaymentProps {
   data: {
@@ -30,7 +35,10 @@ const MobileCustomPayment = (props: MobileCustomPaymentProps) => {
         );
       })}
       {/* horizontal line */}
-      <View style={styles.dashed_horizontal_line} />
+      <HorizontalLine 
+       style={styles.dashed_horizontal_line} 
+       height={2}
+      />
       {/* footer */}
       <View style={styles.row_container}>
         <Text style={styles.total_service_title}>{"Service fee"}</Text>

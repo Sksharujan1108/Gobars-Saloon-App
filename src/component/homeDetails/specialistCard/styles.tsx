@@ -10,8 +10,8 @@ import {
 
 export const styles = StyleSheet.create({
   container: {
-    width: wp(26),
-    height: hp(16),
+    width: Platform.OS == 'android' ? wp(26.5) : wp(26),
+    height: Platform.OS == 'android' ? hp(18) : hp(16),
     borderRadius: 10,
     marginRight: hp(2),
     alignItems: "center",
@@ -25,15 +25,15 @@ export const styles = StyleSheet.create({
     borderRadius: wp(16) / 2,
   },
   name_text: {
-    marginTop: hp(0.5),
-    fontSize: RFValue(13),
+    marginTop: hp(0.6),
+    fontSize: Platform.OS == 'android' ? RFValue(14) : RFValue(12),
     color: ColorSheet.Secondary,
-    fontWeight: "600",
+    fontWeight: "500",
   },
   service_text: {
     marginTop: hp(0.5),
-    fontSize: RFValue(12),
+    fontSize: Platform.OS == 'android' ? RFValue(13) : RFValue(11),
     color: ColorSheet.Text2,
-    fontWeight: "500",
+    fontWeight: "400",
   },
 });

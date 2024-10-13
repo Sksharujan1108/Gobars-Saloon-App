@@ -10,9 +10,9 @@ import {
 
 export const styles = StyleSheet.create({
   time_container: {
-    padding: hp(1),
-    height: hp(5),
-    marginRight: hp(1),
+    padding: Platform.OS == 'android' ? hp(1.3) : hp(1.2),
+    height: Platform.OS == 'android' ? hp(6) : hp(5),
+    marginRight: Platform.OS == 'android' ? hp(1.5) :  hp(1),
     marginBottom: hp(2),
     justifyContent: "center",
     alignItems: "center",
@@ -27,8 +27,8 @@ export const styles = StyleSheet.create({
     backgroundColor: '#D7D6E0',
   },
   time_text: {
-    fontSize: RFValue(13),
-    fontWeight: "700",
+    fontSize: Platform.OS == 'android' ? RFValue(15) : RFValue(12),
+    fontWeight: Platform.OS == 'android' ? '800' : "700",
     color: ColorSheet.Secondary,
   },
   not_available_time_text :{

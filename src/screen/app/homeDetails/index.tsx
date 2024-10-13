@@ -36,20 +36,18 @@ const HomeDetails = () => {
         }}
       >
       <ScrollView
-        style = {styles.scrollView_container}
+        contentContainerStyle = {styles.scrollView_container}
         showsVerticalScrollIndicator = {false}
       >
-      <View style={styles.image_container}>
+      <View style={styles.main_container}>
         <Image
           style={styles.image}
           source={{
             uri: "https://media.istockphoto.com/id/627788040/photo/hairdresser-doing-hairstyle.jpg?s=612x612&w=0&k=20&c=iW5aZnfj7RFfxib7r2MX62SHIAUn2x6_Klu6XFze1uY=",
           }}
         />
-      </View>
-      {/* Details Container */}
+        {/* Details Container */}
       <View style={styles.details_container}>
-        <View style={styles.white_container}>
           {/* Header */}
           <View style={styles.header_row_container}>
             <Text style={styles.header_text}>{Constants.HEADER}</Text>
@@ -114,7 +112,8 @@ const HomeDetails = () => {
             title = {'Book Now'}
             onPress = {() => {}}
           />
-        </View>
+      </View>
+
       </View>
       </ScrollView>
       </View>

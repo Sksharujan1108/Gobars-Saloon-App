@@ -13,7 +13,7 @@ export const styles = StyleSheet.create({
     width: "100%",
   },
   header_Text: {
-    fontSize: RFValue(16),
+    fontSize: Platform.OS == 'android' ? RFValue(18) : RFValue(14),
     fontWeight: '600',
     color: ColorSheet.Secondary,
     marginBottom: hp(2),

@@ -9,6 +9,7 @@ import {
 export const styles = StyleSheet.create({
   root: {
     flex: 1,
+    marginTop: Platform.OS == 'android' ? hp(6) : 0,
     backgroundColor: ColorSheet.White,
   },
   scrollView: {
@@ -22,7 +23,7 @@ export const styles = StyleSheet.create({
     // backgroundColor: 'pink'
   },
   common_heading_text: {
-    fontSize: RFValue(16),
+    fontSize: Platform.OS == 'android' ? RFValue(18) : RFValue(14),
     fontWeight: "600",
     color: ColorSheet.Secondary,
     marginTop: hp(3),

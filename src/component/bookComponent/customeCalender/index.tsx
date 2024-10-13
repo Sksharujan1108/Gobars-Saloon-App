@@ -1,4 +1,4 @@
-import { Text, View } from "react-native";
+import { Text, View, Platform } from 'react-native';
 import React, { useState } from "react";
 import { styles } from "./styles";
 import { Calendar } from "react-native-calendars";
@@ -35,9 +35,9 @@ const MobileCustomCalender = () => {
           monthTextColor: "#000",
           indicatorColor: "black",
           textMonthFontWeight: "bold",
-          textDayFontSize: 16,
-          textMonthFontSize: 18,
-          textDayHeaderFontSize: 14,
+          textDayFontSize: Platform.OS == 'android' ? 18 : 16,
+          textMonthFontSize: Platform.OS == 'android' ? 20 : 18,
+          textDayHeaderFontSize: Platform.OS == 'android' ? 16 : 14,
           // New styles for header background
           "stylesheet.calendar.header": {
             header: {
@@ -49,7 +49,7 @@ const MobileCustomCalender = () => {
               padding: 5, // Optional: Add padding for spacing
             },
             monthText: {
-              fontSize: 18,
+              fontSize: Platform.OS == 'android' ? 20 : 18,
               fontWeight: "bold",
               color: "#000",
               margin: 10,

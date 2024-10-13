@@ -1,4 +1,4 @@
-import { FlatList, Image, Text, TouchableOpacity, View } from "react-native";
+import { FlatList, Image, Text, TouchableOpacity, View, Platform } from 'react-native';
 import React from "react";
 import { styles } from "./styles";
 import SelectTick from "@/assets/svg/book/TickSelect.svg";
@@ -46,7 +46,7 @@ const MobileCustomService = ({
                 {selectedId == item.id && (
                   <BlurView
                     style={styles.checkmark_blur_container}
-                    intensity={5}
+                    intensity= {Platform.OS == 'android' ? 80 : 5}
                     tint="light"
                   >
                     <SelectTick />

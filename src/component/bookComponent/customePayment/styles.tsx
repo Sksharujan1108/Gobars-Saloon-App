@@ -16,7 +16,7 @@ export const styles = StyleSheet.create({
   },
   payment_header_text: {
     marginBottom: hp(2),
-    fontSize: RFValue(16),
+    fontSize: Platform.OS == 'android' ? RFValue(18) : RFValue(14),
     color: ColorSheet.Secondary,
     fontWeight: "600",
   },
@@ -27,29 +27,27 @@ export const styles = StyleSheet.create({
     justifyContent: "space-between",
   },
   service_text: {
-    fontSize: RFValue(14),
+    fontSize: Platform.OS == 'android' ? RFValue(16) : RFValue(13),
     color: ColorSheet.Secondary,
     fontWeight: "500",
   },
   price_text: {
-    fontSize: RFValue(14),
+    fontSize: Platform.OS == 'android' ? RFValue(16) : RFValue(13),
     color: ColorSheet.Secondary,
     fontWeight: "700",
   },
   dashed_horizontal_line: {
     marginTop: hp(1),
     marginBottom: hp(2),
-    borderWidth: 1.2,
-    borderStyle: "dashed",
-    borderColor: "#C3C1D0",
+    alignSelf: 'center',
   },
   total_service_title: {
-    fontSize: RFValue(14),
+    fontSize: Platform.OS == 'android' ? RFValue(16) : RFValue(13),
     color: ColorSheet.Secondary,
     fontWeight: "500",
   },
   total_service_price: {
-    fontSize: RFValue(14),
+    fontSize: Platform.OS == 'android' ? RFValue(16) : RFValue(13),
     color: ColorSheet.Secondary,
     fontWeight: "700",
   },
