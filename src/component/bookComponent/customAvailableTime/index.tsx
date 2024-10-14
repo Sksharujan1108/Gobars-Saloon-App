@@ -41,10 +41,11 @@ const MobileCustomAvailableTime = (props: MobileCustomAvailableTimeProps) => {
             ]}
             activeOpacity={0.5} // TouchableOpacity's activeOpacity
             onPress={() => {
-              if (onPress) {
+              if (item?.isAvailable && onPress) {
                 onPress(item.id); // Call 'onPress' only if it's defined
               }
             }}
+            disabled={!item.isAvailable}
           >
             <Text
               style={[

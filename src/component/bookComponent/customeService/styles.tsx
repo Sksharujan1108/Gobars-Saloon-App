@@ -65,7 +65,7 @@ export const styles = StyleSheet.create({
   },
   price_text: {
     marginTop: hp(0.5),
-    fontSize: Platform.OS == 'android' ? RFValue(14) : RFValue(14),
+    fontSize: Platform.OS == 'android' ? RFValue(14) : RFValue(12),
     fontWeight: "500",
     color: ColorSheet.Text2,
   },
