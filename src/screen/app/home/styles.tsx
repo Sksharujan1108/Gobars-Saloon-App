@@ -11,7 +11,7 @@ export const styles = StyleSheet.create({
   rootContainer: {
     flex: 1,
     marginTop: Platform.OS == 'android' ? hp(6) : 0,
-    // backgroundColor: 'red'
+    backgroundColor: ColorSheet.Secondary,
   },
   scrollView: {
     flexGrow: 1,
@@ -19,7 +19,7 @@ export const styles = StyleSheet.create({
   },
   MainContainer: {
     flex: 1,
-    // backgroundColor: 'pink'
+    backgroundColor: ColorSheet.White,
   },
   flex_container_1: {
     flex: 0.05,

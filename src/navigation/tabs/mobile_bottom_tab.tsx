@@ -18,16 +18,12 @@ import { RFValue } from "react-native-responsive-fontsize";
 
 const Tab = createBottomTabNavigator();
 
+
 const AppBottomTop = () => {
   return (
-    <SafeAreaView
-      style = {styles.root}
-    >
-      <StatusBar
-        barStyle = 'light-content'
-        backgroundColor={'translucent'}
-        translucent={true}
-      />
+    // <View
+    //   style = {styles.root}
+    // >
 
       <Tab.Navigator
         screenOptions={
@@ -39,7 +35,7 @@ const AppBottomTop = () => {
             tabBarStyle: {
                 backgroundColor: ColorSheet.White,
                 borderTopWidth: 0,
-                height: Platform.OS == 'android' ? hp(10) : hp(7)
+                height: Platform.OS == 'android' ? hp(10) : hp(10)
             },
             tabBarShowLabel: false,
           }
@@ -146,19 +142,19 @@ const AppBottomTop = () => {
           })}
         />
       </Tab.Navigator>
-    </SafeAreaView>
+    // </View>
   );
 };
 
 const styles = StyleSheet.create({
   root: {
     flex: 1,
-     backgroundColor: ColorSheet.Secondary,
+    //  backgroundColor: ColorSheet.Secondary,
   },
   iconView: {
     alignItems: 'center',
     justifyContent: 'space-between',
-    marginTop: Platform.OS == 'ios' ? hp(0) : hp(0),
+    marginTop: Platform.OS == 'ios' ? hp(2.5) : hp(0),
     // backgroundColor: 'red'
   },
   labelText: {

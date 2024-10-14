@@ -9,19 +9,15 @@ import {
 // const { width: screenWidth, height: screenHeight } = Dimensions.get('window');
 
 export const styles = StyleSheet.create({
-  button_root: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'center',
-    backgroundColor: ColorSheet.Secondary,
-    paddingHorizontal: wp(2),
-    paddingVertical: hp(2),
-    borderRadius: hp(1),
-    gap: 5,
-  },
-  title_txt: {
-    fontSize: RFValue(16),
-    color: ColorSheet.White,
-    fontWeight: '500',
-  },
+    container: {
+        padding: hp(2),
+        flexDirection: 'row',
+        alignItems: 'center',
+    },
+    title_text: {
+        marginLeft: hp(3),
+        fontSize:Platform.OS == 'android' ? RFValue(16) : RFValue(14),
+        color: ColorSheet.Secondary,
+        fontWeight: '600',
+    },
 });

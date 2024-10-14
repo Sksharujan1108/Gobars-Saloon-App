@@ -23,11 +23,12 @@ export const ColorSheet = {
   Success: '#169D04',
   Warning: '#FFA500',
   SearchBox: '#EBF0F5',
-  IconColor: '#8683A1',
+  IconColor: '#EDEFFB',
   subTitle: '#888888',
   BorderColor: '#2F2F2F',
   BorderColor1: '#EFF0F6',
   NotificationBg: '#272835',
   SearchPlaceHolderColor: '#666D80',
-  DotColor: '#0D0D1252'
+  DotColor: '#0D0D1252',
+  BackGround: '#E8E8E8',
 };
