@@ -20,7 +20,7 @@ export const styles = StyleSheet.create({
     gap: 5,
   },
   title_txt: {
-    fontSize: RFValue(16),
+    fontSize: RFValue(14),
     color: ColorSheet.White,
     fontWeight: '500',
   },

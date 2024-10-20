@@ -58,7 +58,11 @@ const BookAppointment = () => {
       />
 
       {/* Back Title */}
-      <BackTitleHeader title={"Book Appointment"} onPress={() => {}} />
+      <BackTitleHeader 
+        title={"Book Appointment"} 
+        svgColor='black'
+        onPress={() => {}} 
+      />
 
       {/* Scroll View */}
       <ScrollView

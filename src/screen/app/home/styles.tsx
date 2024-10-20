@@ -59,7 +59,7 @@ export const styles = StyleSheet.create({
   list_of_data_container: {
     width: '100%',
     paddingHorizontal: hp(3),
-    marginTop: hp(1),
+    marginTop: hp(2),
   },
   // 
   mapContainer: {

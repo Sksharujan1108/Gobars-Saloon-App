@@ -17,7 +17,7 @@ export const styles = StyleSheet.create({
         padding: hp(1),
         flexDirection: 'row',
         borderRadius: hp(1),
-        marginTop: hp(3),
+        marginBottom: hp(3),
         borderWidth: 1.5,
         borderColor: ColorSheet.Border,
         // backgroundColor: 'pink',

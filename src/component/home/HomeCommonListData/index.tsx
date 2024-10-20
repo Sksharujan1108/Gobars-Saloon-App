@@ -1,4 +1,4 @@
-import { FlatList, Image, ImageProps, Text, TouchableOpacity, View } from "react-native";
+import { FlatList, Image, ImageProps, StyleProp, Text, TouchableOpacity, View, ViewStyle } from "react-native";
 import React from "react";
 import { styles } from "./styles";
 import Entypo from "@expo/vector-icons/Entypo";
@@ -13,10 +13,11 @@ interface HomeCommonListDataProps {
       location: string;
       points: number;
     }[],
+  containerStyle?: StyleProp<ViewStyle>;
 }
 
 const HomeCommonListData = (props: HomeCommonListDataProps) => {
-  const { data } = props;
+  const { data, containerStyle } = props;
   return (
     <View style={styles.root}>
       <FlatList
@@ -25,7 +26,7 @@ const HomeCommonListData = (props: HomeCommonListDataProps) => {
         keyExtractor={(item, index) => index.toString()}
         renderItem={({ item }) => (
           <TouchableOpacity 
-            style = {styles.container}
+            style = {[styles.container, containerStyle]}
             activeOpacity={0.6}  // TouchableOpacity's activeOpacity
             onPress={() => {
               console.log('Item Clicked')
