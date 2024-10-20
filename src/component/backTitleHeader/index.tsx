@@ -19,7 +19,7 @@ const BackTitleHeader = (props: BackTitleHeaderProps) => {
         onPress={onPress}
       >
         <BackArrowSvg
-          fill={svgColor} // Pass color to the SVG
+          stroke={svgColor} // Pass color to the SVG
         />
       </TouchableOpacity>
       <Text style = {[styles.title_text, textStyle]}>{title}</Text>
