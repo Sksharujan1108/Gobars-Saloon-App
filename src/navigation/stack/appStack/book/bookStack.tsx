@@ -10,10 +10,10 @@ const Stack = createNativeStackNavigator<BookStackParamList>();
 const BookStack = () => {
   return (
     <Stack.Navigator
-      initialRouteName = 'BookingInvoiceScreen'
+      initialRouteName = 'BookAppointmentScreen'
       screenOptions = {{ headerShown: false }}
     >
-        <Stack.Screen name = "BookScreen" component = {BookAppointment} />
+        <Stack.Screen name = "BookAppointmentScreen" component = {BookAppointment} />
         <Stack.Screen name = "DetailsAppointmentScreen" component = {DetailsAppointment} />
         <Stack.Screen name = "BookingInvoiceScreen" component = {BookingInvoice} />
     </Stack.Navigator>

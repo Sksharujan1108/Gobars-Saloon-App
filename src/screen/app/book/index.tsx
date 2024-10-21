@@ -9,8 +9,9 @@ import { ErrorFlash } from "@/utilis/flashMessage";
 import MobileCustomPayment from "@/component/bookComponent/customePayment";
 import PrimaryButton from "@/component/button/PrimaryButton";
 import DealBookSvg from '@/assets/svg/book/DealBook.svg'
+import { BookStackScreenProps } from "@/navigation/navigation_Models/app_Models/book/book_Models";
 
-const BookAppointment = () => {
+const BookAppointment = ({navigation}: BookStackScreenProps<'BookAppointmentScreen'>) => {
   const [services, setServices] = useState<any>(data); // Initialize state with the data array
   const [selectedId, setSelectedId] = useState<number>(1); // Set initial selected service to first one
 
@@ -96,7 +97,9 @@ const BookAppointment = () => {
           {/* Button */}
           <PrimaryButton
             title = {'Deal booking'}
-            onPress={() => {}}
+            onPress={() => {
+              navigation.navigate('DetailsAppointmentScreen')
+            }}
             child={
               <DealBookSvg/>
             }

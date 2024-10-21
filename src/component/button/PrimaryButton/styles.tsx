@@ -10,7 +10,7 @@ import {
 
 export const styles = StyleSheet.create({
   button_root: {
-    height: hp(6),
+    height: hp(6.5),
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',

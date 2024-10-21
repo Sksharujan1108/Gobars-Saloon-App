@@ -20,8 +20,9 @@ import { ColorSheet } from "@/utilis/ColorSheet";
 import Coupon from "@/assets/svg/book/coupon.svg";
 import MobileCustomPayment from "@/component/bookComponent/customePayment";
 import MobileAppointmentCustomPayment from "@/component/bookComponent/appointmentCustomePayment";
+import { BookStackScreenProps } from "@/navigation/navigation_Models/app_Models/book/book_Models";
 
-const DetailsAppointment = () => {
+const DetailsAppointment = ({navigation}: BookStackScreenProps<'DetailsAppointmentScreen'>) => {
   const [coupon, setCoupon] = useState("");
 
   return (
@@ -37,20 +38,22 @@ const DetailsAppointment = () => {
         contentContainerStyle={styles.scrollView_container}
         showsVerticalScrollIndicator={false}
       >
-        {/* Back Title */}
-        <BackTitleHeader
-          title={Constants.HEADER_TITLE}
-          textStyle={styles.header_style}
-          svgColor="white"
-          onPress={() => {}}
-        />
-
-        <View style={styles.service_Card}>
-          {/* Service */}
-          <HomeCommonListData
-            containerStyle={styles.data_container_style}
-            data={serviceData}
+        <View style={styles.black_container}>
+          {/* Back Title */}
+          <BackTitleHeader
+            title={Constants.HEADER_TITLE}
+            textStyle={styles.header_style}
+            svgColor="white"
+            onPress={() => {}}
           />
+
+          <View style={styles.service_Card}>
+            {/* Service */}
+            <HomeCommonListData
+              containerStyle={styles.data_container_style}
+              data={serviceData}
+            />
+          </View>
         </View>
         {/* white container */}
         <View style={styles.white_container}>
@@ -108,7 +111,7 @@ const DetailsAppointment = () => {
           <PrimaryButton
             title={Constants.PAY_NOW}
             onPress={() => {
-              console.log("pay now");
+              navigation.navigate('BookingInvoiceScreen')
             }}
             child={<Wallet width={22} height={22} />}
           />
@@ -158,6 +161,22 @@ const serviceList = [
     title: "Basic haircut",
     service: "Haircut",
     price: 450,
+  },
+  {
+    id: 4,
+    image:
+      "https://i.pinimg.com/originals/39/82/1d/39821dfd3fece681b537dcee8fae986f.jpg",
+    title: "Basic haircut",
+    service: "Basic haircut & vitamint",
+    price: 400,
+  },
+  {
+    id: 5,
+    image:
+      "https://trueessenceskin.ca/wp-content/uploads/2021/07/main-picture-indian-head-massage-1170x694.jpg",
+    title: "Massage",
+    service: "Extra massage",
+    price: 500,
   },
 ];
 

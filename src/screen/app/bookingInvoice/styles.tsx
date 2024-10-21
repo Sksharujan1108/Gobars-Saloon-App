@@ -16,17 +16,21 @@ export const styles = StyleSheet.create({
     flexGrow: 1,
     // paddingBottom: hp(20),
   },
+  success_main_card_container: {
+    flex: 0.5,
+    // backgroundColor: 'pink'
+  },
   header_style: {
     color: ColorSheet.White,
   },
   success_card: {
     width: '100%',
+    marginTop: hp(5),
     alignItems: 'center',
     justifyContent: 'center',
-    marginTop: hp(3),
     gap: 4,
     paddingHorizontal: hp(3),
-    // backgroundColor: 'pink',
+    // backgroundColor: 'red',
   },
   success_text: {
     marginTop: hp(1),
@@ -44,11 +48,9 @@ export const styles = StyleSheet.create({
     // backgroundColor: 'green'
   },
   white_container: {
-    position: 'absolute',
-    bottom: 0,
-    width: '100%',
+    flex: 0.5,
     padding: hp(2),
-    marginTop: hp(4),
+    marginTop: hp(3),
     borderTopRightRadius: hp(3),
     borderTopLeftRadius: hp(3),
     backgroundColor: ColorSheet.White
@@ -81,7 +83,7 @@ export const styles = StyleSheet.create({
   },
   download_button: {
     width: '46%',
-    height: hp(6),
+    height: hp(6.5),
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',

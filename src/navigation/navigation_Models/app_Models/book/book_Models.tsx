@@ -1,7 +1,7 @@
 import { StackScreenProps } from '@react-navigation/stack';
 
 export type BookStackParamList = {
-  BookScreen: undefined;
+  BookAppointmentScreen: undefined;
   DetailsAppointmentScreen: undefined
   BookingInvoiceScreen: undefined
 };

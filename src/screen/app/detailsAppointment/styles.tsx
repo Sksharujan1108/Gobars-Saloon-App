@@ -16,6 +16,10 @@ export const styles = StyleSheet.create({
     flexGrow: 1,
     // paddingBottom: hp(20),
   },
+  black_container: {
+    flex: 0.4,
+    // backgroundColor: 'pink'
+  },
   header_style: {
     color: ColorSheet.White,
   },
@@ -28,7 +32,7 @@ export const styles = StyleSheet.create({
     backgroundColor: ColorSheet.White,
   },
   white_container: {
-    width: '100%',
+    flex: 0.5,
     padding: hp(2),
     borderTopRightRadius: hp(3),
     borderTopLeftRadius: hp(3),
