@@ -31,4 +31,5 @@ export const ColorSheet = {
   SearchPlaceHolderColor: '#666D80',
   DotColor: '#0D0D1252',
   BackGround: '#E8E8E8',
+  OpenButton: '#27AE60',
 };
