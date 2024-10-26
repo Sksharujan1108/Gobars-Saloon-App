@@ -12,12 +12,6 @@ export const styles = StyleSheet.create({
     padding: hp(2),
     // backgroundColor: ColorSheet.Secondary,
   },
-  our_service_text: {
-    marginBottom: hp(2),
-    fontSize: Platform.OS == 'android' ? RFValue(14) : RFValue(14),
-    fontWeight: '500',
-    color: ColorSheet.Secondary,
-  },
   button_container: {
     width: '100%',
     marginTop: hp(3),

@@ -2,12 +2,17 @@ import { StyleSheet, Text, View } from "react-native";
 import React from "react";
 import { styles } from "./styles";
 import ServiceListShowCard from "@/component/bookComponent/serviceListShowCard";
+import PrimaryButton from "@/component/button/PrimaryButton";
 
 const BarberDetailsService = () => {
   return (
     <View style={styles.root}>
       <Text style={styles.our_service_text}>Our Service</Text>
       <ServiceListShowCard data={serviceList} />
+      <View style={styles.button_container}>
+        {/* Button */}
+        <PrimaryButton title="Booking Now" onPress={() => {}} />
+      </View>
     </View>
   );
 };

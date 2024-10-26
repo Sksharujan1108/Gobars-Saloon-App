@@ -23,12 +23,14 @@ export const styles = StyleSheet.create({
     // backgroundColor: 'red',
   },
   image_style: {
-      width: hp(7),
-      height: hp(7),
-      borderRadius: hp(3.5),
+      width: hp(6),
+      height: hp(6),
+      borderRadius: hp(3),
   },
   text_container: {
-    gap: 5
+    width: '78%',
+    gap: 8,
+    // backgroundColor: 'green'
   },
   title: {
     fontSize: Platform.OS == 'android' ? RFValue(14) : RFValue(13),
@@ -40,9 +42,14 @@ export const styles = StyleSheet.create({
     fontWeight: '500',
     color: ColorSheet.Text2,
   },
-  price: {
+  star_container: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 5,
+  },
+  review: {
     fontSize: Platform.OS == 'android' ? RFValue(14) : RFValue(13),
     fontWeight: '600',
-    color: ColorSheet.Secondary,
+    color: ColorSheet.Text2,
   },
 });
