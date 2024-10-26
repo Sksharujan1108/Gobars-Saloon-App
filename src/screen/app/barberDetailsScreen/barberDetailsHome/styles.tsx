@@ -1,7 +1,6 @@
 import { ColorSheet } from "@/utilis/ColorSheet";
-import { Dimensions, Platform, StyleSheet } from "react-native";
+import { Platform, StyleSheet } from "react-native";
 import { RFValue } from "react-native-responsive-fontsize";
-import { NavigationContainer } from '@react-navigation/native';
 import {
   heightPercentageToDP as hp,
   widthPercentageToDP as wp,
@@ -11,7 +10,7 @@ export const styles = StyleSheet.create({
   rootContainer: {
     flex: 1,
     marginTop: Platform.OS == 'android' ? hp(6) : 0,
-    backgroundColor: 'pink',
+    // backgroundColor: 'pink',
   },
   scrollView: {
     flexGrow: 1,
@@ -19,7 +18,7 @@ export const styles = StyleSheet.create({
   main_container: {
     width: '100%',
     padding: hp(2),
-    backgroundColor: 'yellow',
+    // backgroundColor: 'yellow',
   },
   image_container: {
     width: wp(92),
@@ -86,12 +85,41 @@ export const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     gap: 10,
-    backgroundColor: 'red'
+    // backgroundColor: 'red'
   },
 
   switch_container: {
     width: '100%',
-    height: hp(8),
-    backgroundColor: 'green'
+    padding: hp(1),
+    backgroundColor: ColorSheet.IconColor,
   },
+  horizontal_button_scroll: {
+    flexGrow: 1,
+  },
+  common_switch_button_container: {
+    // width: wp(20),
+    height: hp(5.5),
+    padding: hp(1.5),
+    paddingHorizontal: hp(2),
+    gap: 6,
+    marginHorizontal: wp(3),
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    borderWidth: 1,
+    borderColor: ColorSheet.UnClickBorder,
+    borderRadius: hp(1),
+  },
+  common_switch_button_active: {
+    borderColor: ColorSheet.Secondary,
+  },
+  common_switch_button_text: {
+    fontSize: Platform.OS == 'android' ? RFValue(14) : RFValue(12),
+    fontWeight: '500',
+    color: ColorSheet.Text2,
+  },
+  common_switch_button_text_active: {
+    color: ColorSheet.Secondary,
+  },
+
 });

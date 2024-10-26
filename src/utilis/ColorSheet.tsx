@@ -32,4 +32,5 @@ export const ColorSheet = {
   DotColor: '#0D0D1252',
   BackGround: '#E8E8E8',
   OpenButton: '#27AE60',
+  UnClickBorder: '#E2E2E2',
 };
